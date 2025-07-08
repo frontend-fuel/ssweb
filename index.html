@@ -908,6 +908,7 @@
         .hidden {
             display: none;
         }
+        
     </style>
 </head>
 <body>
@@ -946,7 +947,7 @@
                     healthcare providers, hospitality businesses, and more.
                 </p>
                 <div class="btn-group anim-fade anim-delay-2">
-                    <a href="#contact" class="btn btn-primary btn-lg">Start Your Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    <button class="btn btn-primary btn-lg" onclick="openContactForm()">Start Your Project <i class="fas fa-arrow-right ml-2"></i></button>
                     <button class="btn btn-outline btn-lg">View Our Work</button>
                 </div>
             </div>
@@ -1212,7 +1213,7 @@
                         Manager: YARRU RAJASEKHAR
                     </p>
                     <div class="footer-msme" style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block; text-align: center;">
-                        <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE=" target="_blank" style="text-decoration: none;">
+                        <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE=" target="" style="text-decoration: none;">
                             <img src="img/image.png" alt="MSME Udyam" style="width: 150px; height: auto;">
                             <p style="margin: 10px 0 0; color: black; font-weight: bold;">UDYAM-AP-24-0048466</p>
                         </a>
@@ -1263,6 +1264,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         // Scroll Animation
         function animateOnScroll() {
@@ -1339,6 +1341,283 @@
                 element.classList.remove('hover-animate');
             });
         });
+
+        emailjs.init('TbMGfm4A1K9eEqXz7');
+        console.log('EmailJS initialized');
+
+        let contactFormOpen = false;
+        let isSubmitting = false;
+
+        function openContactForm() {
+            if (contactFormOpen) return;
+            
+            const formHtml = `
+                <div id="contact-form" style="
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: #fff;
+                        padding: 12px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+                        z-index: 1000;
+                        width: 90%;
+                        max-width: 350px;
+                        display: none;
+                    ">
+                        <div style="
+                            text-align: center;
+                            margin-bottom: 24px;
+{{ ... }}
+{{ ... }}
+                            
+                            @media (max-width: 768px) {
+                                margin-bottom: 16px;
+                            }
+                        ">
+                            <h2 style="
+                                color: var(--blue-600);
+                                font-weight: 600;
+                                margin-bottom: 12px;
+                                font-size: 24px;
+                                
+                                @media (max-width: 768px) {
+                                    font-size: 20px;
+                                }
+                            ">Contact Us</h2>
+                            <p style="
+                                color: #64748b;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                
+                                @media (max-width: 768px) {
+                                    font-size: 14px;
+                                }
+                            ">We're here to help! Fill out the form below and our team will get back to you shortly.</p>
+                        </div>
+                        <form id="contactForm" style="
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            width: 100%;
+                        ">
+                            <div>
+                                <label style="
+                                    color: #475569;
+                                    font-weight: 500;
+                                    display: block;
+                                    margin-bottom: 8px;
+                                    font-size: 14px;
+                                ">Name:</label>
+                                <input type="text" id="from_name" name="from_name" required style="
+                                    width: 100%;
+                                    padding: 10px;
+                                    border: 1px solid #e2e8f0;
+                                    border-radius: 4px;
+                                    font-size: 14px;
+                                    transition: all 0.3s ease;
+                                ">
+                            </div>
+                            <div>
+                                <label style="
+                                    color: #475569;
+                                    font-weight: 500;
+                                    display: block;
+                                    margin-bottom: 8px;
+                                    font-size: 14px;
+                                ">Email:</label>
+                                <input type="email" id="reply_to" name="reply_to" required style="
+                                    width: 100%;
+                                    padding: 12px;
+                                    border: 2px solid #e2e8f0;
+                                    border-radius: 8px;
+                                    font-size: 16px;
+                                    transition: all 0.3s ease;
+                                    
+                                    @media (max-width: 768px) {
+                                        padding: 10px;
+                                        font-size: 14px;
+                                    }
+                                ">
+                            </div>
+                            <div>
+                                <label style="
+                                    color: #475569;
+                                    font-weight: 500;
+                                    display: block;
+                                    margin-bottom: 8px;
+                                    font-size: 14px;
+                                ">Message:</label>
+                                <textarea id="message" name="message" required style="
+                                    width: 100%;
+                                    padding: 10px;
+                                    border: 1px solid #e2e8f0;
+                                    border-radius: 4px;
+                                    font-size: 14px;
+                                    height: 120px;
+                                    resize: vertical;
+                                    transition: all 0.3s ease;
+                                " placeholder="Please include your phone number in the message."></textarea>
+                            </div>
+                            <div style="
+                                display: flex;
+                                justify-content: center;
+                                gap: 12px;
+                                
+                                @media (max-width: 768px) {
+                                    flex-direction: column;
+                                    gap: 8px;
+                                }
+                            ">
+                                <button type="submit" class="btn btn-primary btn-lg" style="
+                                    width: 100%;
+                                    padding: 10px 16px;
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                    transition: all 0.3s ease;
+                                ">
+                                    Send Message
+                                </button>
+                                <button type="button" onclick="document.getElementById('contact-form').remove(); contactFormOpen = false;" class="btn btn-outline btn-lg" style="
+                                    width: 100%;
+                                    padding: 10px 16px;
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                    transition: all 0.3s ease;
+                                ">
+                                    Close
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', formHtml);
+            
+            // Show the form
+            const form = document.getElementById('contact-form');
+            form.style.display = 'block';
+            contactFormOpen = true;
+
+            // Close form when clicking outside
+            form.addEventListener('click', function(e) {
+                if (e.target === form) {
+                    closeContactForm();
+                }
+            });
+
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Prevent multiple submissions
+                if (isSubmitting) {
+                    event.preventDefault();
+                    return;
+                }
+                
+                isSubmitting = true;
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                emailjs.sendForm('service_0lljehp', 'template_p0qr6id', this)
+                    .then(function() {
+                        const successMessage = document.createElement('div');
+                        successMessage.style.position = 'fixed';
+                        successMessage.style.top = '50%';
+                        successMessage.style.left = '50%';
+                        successMessage.style.transform = 'translate(-50%, -50%)';
+                        successMessage.style.backgroundColor = '#f0f9ff';
+                        successMessage.style.padding = '30px 40px';
+                        successMessage.style.borderRadius = '15px';
+                        successMessage.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.1)';
+                        successMessage.style.zIndex = '1001';
+                        successMessage.style.display = 'flex';
+                        successMessage.style.flexDirection = 'column';
+                        successMessage.style.alignItems = 'center';
+                        successMessage.style.gap = '15px';
+                        successMessage.style.textAlign = 'center';
+                        
+                        successMessage.innerHTML = `
+                            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                                <i class="fas fa-check-circle" style="color: #0369a1; font-size: 28px; margin-right: 10px;"></i>
+                                <h3 style="
+                                    color: #0369a1;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    margin: 0;
+                                    
+                                    @media (max-width: 768px) {
+                                        font-size: 20px;
+                                    }
+                                ">Thank you for your message!</h3>
+                            </div>
+                            <p style="
+                                color: #0369a1;
+                                font-size: 16px;
+                                line-height: 1.6;
+                                max-width: 400px;
+                                
+                                @media (max-width: 768px) {
+                                    font-size: 14px;
+                                    max-width: 300px;
+                                }
+                            ">Our team will contact you soon to discuss your project. We appreciate your interest in SS Web Tech.</p>
+                        `;
+                        
+                        // Add success message to the form
+                        const form = document.getElementById('contact-form');
+                        if (form) {
+                            form.appendChild(successMessage);
+                            
+                            // Remove all form inputs
+                            const inputs = form.querySelectorAll('input, textarea');
+                            inputs.forEach(input => {
+                                input.value = '';
+                            });
+                            
+                            // Disable submit button
+                            const submitButton = form.querySelector('button[type="submit"]');
+                            if (submitButton) {
+                                submitButton.disabled = true;
+                            }
+                            
+                            // Auto-close after 5 seconds
+                            setTimeout(() => {
+                                closeContactForm();
+                            }, 5000);
+                        }
+                    }, function(error) {
+                        console.error('EmailJS error:', error);
+                        isSubmitting = false;
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                        alert('Failed to send message. Please try again later. Error: ' + error.text);
+                        // Add error message to form
+                        const errorMessage = document.createElement('div');
+                        errorMessage.style.color = 'red';
+                        errorMessage.style.marginTop = '10px';
+                        errorMessage.textContent = 'Error: ' + error.text;
+                        this.appendChild(errorMessage);
+                        setTimeout(() => {
+                            errorMessage.remove();
+                        }, 5000);
+                    });
+            });
+
+            function closeContactForm() {
+                const form = document.getElementById('contact-form');
+                if (form) {
+                    form.remove();
+                    contactFormOpen = false;
+                }
+            }
+
+            document.querySelector('a[href="#contact-form"]').addEventListener('click', function() {
+                document.getElementById('contact-form').style.display = 'block';
+            });
+        }
     </script>
 </body>
 </html>
