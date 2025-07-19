@@ -93,6 +93,25 @@
     .toggle-btn { background: #6c757d; color: #fff; }
     .toggle-btn:hover { background: #5a6268; transform: scale(1.05); }
 
+    .back-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #6c757d;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #5a6268;
+      transform: scale(1.05);
+    }
+
     .footer {
       margin-top: 25px;
       font-size: 14px;
@@ -121,7 +140,8 @@
   <div class="dim" id="screenDimmer"></div>
 
   <div class="call-box">
-    <img src="logo-sswebtech (1).png" alt="SSWebTech Logo" class="logo" />
+    <button class="back-btn" onclick="window.history.back()">Back</button>
+    <img src="logo-sswebtech.png" alt="SSWebTech Logo" class="logo" />
     <h1>📞 SSWebTech AI</h1>
     <div class="icons" id="speakerIcon">🔊</div>
     <p class="status" id="status">Status: Ready</p>
