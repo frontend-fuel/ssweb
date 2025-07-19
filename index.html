@@ -99,16 +99,6 @@
             50% { opacity: 0.6; }
         }
 
-        /* Vibrating Animation */
-        @keyframes vibrate {
-            0% { transform: translate(0, 0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-            60% { transform: translate(-2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0, 0); }
-        }
-
         /* Floating Action Button */
         .fab-container {
             position: fixed;
@@ -178,48 +168,10 @@
             transform: scale(1);
         }
 
-        /* Floating Action Button for AI Call */
-        .fab-container-left {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .fab-main-left {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(to right, var(--purple-600), var(--cyan-500));
-            color: white;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
-            animation: vibrate 0.2s linear infinite;
-        }
-
-        .fab-main-left:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .fab-main-left.active {
-            transform: rotate(45deg);
-            background: var(--red-600);
-        }
-
-        .fab-actions-left {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        }
+        /* Staggered animation for actions appearing */
+        .fab-container.active .fab-action:nth-child(1) { transition-delay: 0.2s; }
+        .fab-container.active .fab-action:nth-child(2) { transition-delay: 0.1s; }
+        .fab-container.active .fab-action:nth-child(3) { transition-delay: 0s; }
 
         /* Header Styles */
         header {
@@ -1309,12 +1261,6 @@
             <button class="fab-main">
                 <i class="fas fa-envelope"></i>
             </button>
-        </div>
-        <!-- Floating Action Button for AI Call -->
-        <div class="fab-container-left">
-            <a href="ai-call.html" class="fab-main-left">
-                <i class="fas fa-phone"></i>
-            </a>
         </div>
     </footer>
 
