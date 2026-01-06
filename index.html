@@ -1005,6 +1005,7 @@
         .hidden {
             display: none;
         }
+        
     </style>
 </head>
 
@@ -1044,8 +1045,12 @@
                     healthcare providers, hospitality businesses, and more.
                 </p>
                 <div class="btn-group anim-fade anim-delay-2">
+<<<<<<< HEAD
                     <button class="btn btn-primary btn-lg" onclick="openContactForm()">Start Your Project <i
                             class="fas fa-arrow-right ml-2"></i></button>
+=======
+                    <button class="btn btn-primary btn-lg" onclick="openContactForm()">Start Your Project <i class="fas fa-arrow-right ml-2"></i></button>
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                     <button class="btn btn-outline btn-lg">View Our Work</button>
                 </div>
             </div>
@@ -1303,8 +1308,12 @@
                         <img src="logo-sswebtech.png" alt="SSWebTech Logo">
                     </a>
                     <p class="footer-text">
+<<<<<<< HEAD
                         Building the future of web development, one project at a time. Your trusted partner for digital
                         transformation.
+=======
+                        Building the future of web development, one project at a time. Your trusted partner for digital transformation.
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                     </p>
                     <p class="footer-text">
                         CEO & Founder: YARRU SASIDHAR ROYAL
@@ -1312,10 +1321,15 @@
                     <p class="footer-text">
                         Manager: YARRU RAJASEKHAR
                     </p>
+<<<<<<< HEAD
                     <div class="footer-msme"
                         style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block; text-align: center;">
                         <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE="
                             target="" style="text-decoration: none;">
+=======
+                    <div class="footer-msme" style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block; text-align: center;">
+                        <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE=" target="" style="text-decoration: none;">
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                             <img src="img/image.png" alt="MSME Udyam" style="width: 150px; height: auto;">
                             <p style="margin: 10px 0 0; color: black; font-weight: bold;">UDYAM-AP-24-0048466</p>
                         </a>
@@ -1452,7 +1466,11 @@
 
         function openContactForm() {
             if (contactFormOpen) return;
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
             const formHtml = `
                 <div id="contact-form" style="
                         position: fixed;
@@ -1595,36 +1613,60 @@
                     </div>
             `;
             document.body.insertAdjacentHTML('beforeend', formHtml);
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
             // Show the form
             const form = document.getElementById('contact-form');
             form.style.display = 'block';
             contactFormOpen = true;
 
             // Close form when clicking outside
+<<<<<<< HEAD
             form.addEventListener('click', function (e) {
+=======
+            form.addEventListener('click', function(e) {
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                 if (e.target === form) {
                     closeContactForm();
                 }
             });
 
+<<<<<<< HEAD
             document.getElementById('contactForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
+=======
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                 // Prevent multiple submissions
                 if (isSubmitting) {
                     event.preventDefault();
                     return;
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                 isSubmitting = true;
                 const submitButton = this.querySelector('button[type="submit"]');
                 const originalText = submitButton.textContent;
                 submitButton.disabled = true;
                 submitButton.textContent = 'Sending...';
+<<<<<<< HEAD
 
                 emailjs.sendForm('service_0lljehp', 'template_p0qr6id', this)
                     .then(function () {
+=======
+                
+                emailjs.sendForm('service_0lljehp', 'template_p0qr6id', this)
+                    .then(function() {
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                         const successMessage = document.createElement('div');
                         successMessage.style.position = 'fixed';
                         successMessage.style.top = '50%';
@@ -1640,7 +1682,11 @@
                         successMessage.style.alignItems = 'center';
                         successMessage.style.gap = '15px';
                         successMessage.style.textAlign = 'center';
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                         successMessage.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
                                 <i class="fas fa-check-circle" style="color: #0369a1; font-size: 28px; margin-right: 10px;"></i>
@@ -1667,30 +1713,50 @@
                                 }
                             ">Our team will contact you soon to discuss your project. We appreciate your interest in SS Web Tech.</p>
                         `;
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                         // Add success message to the form
                         const form = document.getElementById('contact-form');
                         if (form) {
                             form.appendChild(successMessage);
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                             // Remove all form inputs
                             const inputs = form.querySelectorAll('input, textarea');
                             inputs.forEach(input => {
                                 input.value = '';
                             });
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                             // Disable submit button
                             const submitButton = form.querySelector('button[type="submit"]');
                             if (submitButton) {
                                 submitButton.disabled = true;
                             }
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                             // Auto-close after 5 seconds
                             setTimeout(() => {
                                 closeContactForm();
                             }, 5000);
                         }
+<<<<<<< HEAD
                     }, function (error) {
+=======
+                    }, function(error) {
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                         console.error('EmailJS error:', error);
                         isSubmitting = false;
                         submitButton.disabled = false;
@@ -1716,7 +1782,11 @@
                 }
             }
 
+<<<<<<< HEAD
             document.querySelector('a[href="#contact-form"]').addEventListener('click', function () {
+=======
+            document.querySelector('a[href="#contact-form"]').addEventListener('click', function() {
+>>>>>>> 1874243c240763768681eec189bceb9b0801bcbb
                 document.getElementById('contact-form').style.display = 'block';
             });
         }
