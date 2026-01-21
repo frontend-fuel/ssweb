@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSWebTech - Top Web Development & Tech Solutions Company</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="SSWebTech offers professional web development, mobile app development, and technical support services. We build digital excellence for businesses, educational institutions, and healthcare providers.">
-    <meta name="keywords"
-        content="web development, sswebtech, tech support, app development, website design, software solutions, custom websites, SEO services, web applications">
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <meta name="description" content="SSWebTech offers professional web development, mobile app development, and technical support services. We build digital excellence for businesses, educational institutions, and healthcare providers.">
+    <meta name="keywords" content="web development, sswebtech, tech support, app development, website design, software solutions, custom websites, SEO services, web applications, IoT projects, ESP32, Arduino">
     <meta name="author" content="SSWebTech">
     <meta name="robots" content="index, follow">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://sswebtech.xyz/">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sswebtech.xyz/">
     <meta property="og:title" content="SSWebTech - Top Web Development & Tech Solutions Company">
-    <meta property="og:description"
-        content="Professional web development and tech solutions. We build scalable, high-performance websites and applications for your business growth.">
+    <meta property="og:description" content="Professional web development and tech solutions. We build scalable, high-performance websites and applications for your business growth.">
     <meta property="og:image" content="https://sswebtech.xyz/logo-sswebtech.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sswebtech.xyz/">
     <meta property="twitter:title" content="SSWebTech - Top Web Development & Tech Solutions Company">
-    <meta property="twitter:description"
-        content="Professional web development and tech solutions. We build scalable, high-performance websites and applications.">
+    <meta property="twitter:description" content="Professional web development and tech solutions. We build scalable, high-performance websites and applications.">
     <meta property="twitter:image" content="https://sswebtech.xyz/logo-sswebtech.png">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -59,14 +52,7 @@
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
+        "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
         "opens": "09:00",
         "closes": "20:00"
       },
@@ -77,1681 +63,757 @@
     }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="logo.png" type="image/png">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("TbMGfm4A1K9eEqXz7");
+        })();
+    </script>
+    
     <style>
-        /* Global Styles */
+        /* --- 1. Variables & Reset --- */
         :root {
-            --blue-600: #2563eb;
-            --blue-700: #1d4ed8;
-            --purple-600: #9333ea;
-            --purple-700: #7e22ce;
-            --cyan-500: #06b6d4;
-            --green-600: #16a34a;
-            --orange-600: #ea580c;
-            --red-600: #dc2626;
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f1f5f9;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
+            --success: #10b981;
+            --error: #ef4444;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(to bottom right, #f8fafc, white, #eff6ff);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--darker);
+            letter-spacing: -0.02em;
         }
 
-        /* Animation Classes */
-        .anim-fade {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .anim-fade.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .anim-delay-1 {
-            transition-delay: 0.2s;
-        }
-
-        .anim-delay-2 {
-            transition-delay: 0.4s;
-        }
-
-        .anim-delay-3 {
-            transition-delay: 0.6s;
-        }
-
-        .anim-delay-4 {
-            transition-delay: 0.8s;
-        }
-
-        .anim-scale {
-            transform: scale(0.95);
-            opacity: 0;
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease-out;
-        }
-
-        .anim-scale.animated {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .anim-gradient-text {
-            background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(90deg, var(--blue-600), var(--purple-600), var(--blue-700), var(--blue-600));
-            animation: gradient-shift 6s linear infinite;
-        }
-
-        @keyframes gradient-shift {
-            0% {
-                background-position: 0% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        .anim-float {
-            animation: floating 6s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .anim-pulse {
-            animation: pulse 2s ease infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
-        }
-
-        /* Floating Action Button */
-        .fab-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .fab-main {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
-            color: white;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
-        }
-
-        .fab-main:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .fab-main.active {
-            transform: rotate(45deg);
-            background: var(--red-600);
-        }
-
-        .fab-actions {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        }
-
-        .fab-action {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            margin-bottom: 10px;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-        }
-
-        .fab-phone {
-            background-color: #25D366;
-        }
-
-        .fab-whatsapp {
-            background-color: #25D366;
-        }
-
-        .fab-email {
-            background-color: #EA4335;
-        }
-
-        .fab-action:hover {
-            transform: scale(1.15);
-        }
-
-        .fab-container.active .fab-action {
-            transform: scale(1);
-        }
-
-        /* Staggered animation for actions appearing */
-        .fab-container.active .fab-action:nth-child(1) {
-            transition-delay: 0.2s;
-        }
-
-        .fab-container.active .fab-action:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-
-        .fab-container.active .fab-action:nth-child(3) {
-            transition-delay: 0s;
-        }
-
-        /* Header Styles */
-        header {
-            width: 100%;
-            background-color: white;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-
-
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo img,
-        .footer-logo img {
-            width: 150px;
-            /* Adjust width as needed */
-            height: auto;
-        }
-
-        .logo-text {
-            font-size: 1.75rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #1e3a8a, #38bdf8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        nav {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            nav {
-                display: flex;
-                gap: 2rem;
-            }
-        }
-
-        nav a {
-            color: #374151;
-            text-decoration: none;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue-600);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--blue-600);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
+        /* --- 2. Advanced Utility Classes --- */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 6rem 0; position: relative; }
+        
         .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
             position: relative;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
             overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
         .btn-primary {
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
+            background: var(--darker);
             color: white;
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.39);
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(to right, var(--blue-700), var(--purple-700));
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to right,
-                    rgba(255, 255, 255, 0.13),
-                    rgba(255, 255, 255, 0.13) 77%,
-                    rgba(255, 255, 255, 0.5) 92%,
-                    rgba(255, 255, 255, 0.0));
-            transform: rotate(30deg);
-            transition: all 0.7s;
-        }
-
-        .btn-primary:hover::after {
-            left: 130%;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.1), transparent 40%),
-                radial-gradient(circle at 80% 30%, rgba(167, 139, 250, 0.1), transparent 40%);
-            z-index: -1;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.375rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            border: 1px solid #bfdbfe;
-            color: var(--blue-600);
-            background-color: white;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 4.5rem;
-            }
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.23); }
 
         .gradient-text {
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600), #1e40af);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #4b5563;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 640px) {
-            .btn-group {
-                flex-direction: row;
-            }
-        }
-
-        .btn-lg {
-            padding: 0.75rem 2rem;
-            font-size: 1.125rem;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #374151;
-            color: #374151;
-        }
-
-        .btn-outline:hover {
-            background: #f3f4f6;
-            border-color: var(--blue-600);
-            color: var(--blue-600);
-        }
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 3rem;
-        }
-
-        .feature-badge {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            background-color: #f3f4f6;
-            font-size: 0.875rem;
-            transition: all 0.3s;
-        }
-
-        .feature-badge:hover {
-            transform: translateY(-2px);
-        }
-
-        .feature-badge i {
-            margin-right: 0.5rem;
-            color: var(--green-600);
-        }
-
-        /* Services Section */
-        .section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .section-white {
-            background-color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.25rem;
+            -webkit-text-fill-color: transparent;
             font-weight: 800;
-            color: #111827;
-            margin-bottom: 1rem;
         }
 
-        .section-title p {
-            font-size: 1.125rem;
-            color: #4b5563;
-            max-width: 42rem;
-            margin: 0 auto;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-
-        @media (min-width: 768px) {
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-
-        }
-
-        .card {
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s;
-            background-color: white;
-            overflow: hidden;
-            border: 0;
-        }
-
-        .card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .card-scale:hover {
-            transform: scale(1.05);
-        }
-
-        .card-wave {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-wave::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.2), transparent 50%);
-            z-index: 0;
-            transition: all 0.6s ease;
-            opacity: 0;
-        }
-
-        .card-wave:hover::after {
-            opacity: 1;
-            transform: scale(2);
-        }
-
-        .card-header {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .card-icon {
-            margin: 0 auto 1rem;
-            padding: 0.75rem;
-            background-color: #f9fafb;
-            border-radius: 9999px;
-            width: max-content;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-icon {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0;
-            transition: color 0.3s ease;
-        }
-
-        .card:hover .card-title {
-            color: var(--blue-600);
-        }
-
-        .card-content {
-            padding: 0 1.5rem 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-description {
-            color: #4b5563;
-            text-align: center;
-        }
-
-        /* Industries Section */
-        .section-gradient {
-            background: linear-gradient(to right, #eff6ff, #f5f3ff);
-        }
-
-        .industry-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .industry-card {
-            position: relative;
-            overflow: hidden;
-            text-decoration: none !important;
-            color: #111827;
-        }
-
-        .industry-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .industry-card:hover::before {
-            opacity: 1;
-        }
-
-
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .about-content {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        .about-points {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .about-point {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .about-point i {
-            color: var(--green-600);
-            transition: transform 0.3s ease;
-        }
-
-        .about-point:hover i {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .cta-box {
-            background: linear-gradient(to bottom right, #dbeafe, #e9d5ff);
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.5s ease;
-        }
-
-        .cta-box:hover {
-            transform: rotate(1deg);
-        }
-
-        .cta-content {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        /* Contact Section */
-        .section-primary {
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 15%),
-                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 15%);
-            z-index: 0;
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (min-width: 768px) {
-            .contact-info {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #111827;
-            color: white;
-            padding: 3rem 0;
-        }
-
-        .footer-content {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-content {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-        }
-
-        .footer-about {
-            grid-column: span 2;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            text-decoration: none;
-        }
-
-        .footer-logo img {
-            width: 150px;
-            /* Adjust width as needed */
-            height: auto;
-        }
-
-        .footer-text {
-            color: #9ca3af;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-heading {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .footer-divider {
-            border-top: 1px solid #374151;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-
-        .footer-divider p {
-            transition: all 0.3s ease;
-        }
-
-        .footer-divider:hover p {
-            letter-spacing: 1px;
-        }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(31, 41, 55, 0.75);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: linear-gradient(to bottom right, white, #f3f4f6);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            max-width: 28rem;
-            width: 90%;
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-title {
-            font-size: 1.875rem;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 1rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            padding-left: 2.5rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--blue-600);
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
-        }
-
-        .form-icon {
-            position: absolute;
-            left: 0.75rem;
-            top: 0.75rem;
-            color: #9ca3af;
-        }
-
-        .btn-close {
-            color: var(--red-600);
-            background: none;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: underline;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-close:hover {
-            color: var(--red-700);
-        }
-
-        /* Success Message */
-        .success-message {
-            color: var(--green-600);
-            text-align: center;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .mb-6 {
-            margin-bottom: 1.5rem;
-        }
-
-        .mb-8 {
-            margin-bottom: 2rem;
-        }
-
-        .mt-4 {
-            margin-top: 1rem;
-        }
-
-        .hidden {
-            display: none;
-        }
+        /* --- 3. Navbar --- */
+        header {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px;
+            z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 16px; padding: 0.5rem 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s;
+        }
+        header.scrolled { top: 10px; padding: 0.4rem 1.5rem; background: rgba(255, 255, 255, 0.95); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 55px; width: auto; transition: height 0.3s ease; }
+        .desktop-nav { display: none; gap: 2rem; align-items: center; }
+        .desktop-nav a { font-weight: 500; font-size: 0.95rem; color: var(--dark); opacity: 0.8; transition: 0.3s; text-decoration: none; }
+        .desktop-nav a:hover { opacity: 1; color: var(--primary); }
+        @media(min-width: 900px) { .desktop-nav { display: flex; } .mobile-toggle { display: none; } }
+
+        /* --- 4. Hero --- */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(-45deg, #eff6ff, #dbeafe, #e0e7ff); background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; padding-top: 100px; overflow: hidden; position: relative;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .blob { position: absolute; filter: blur(80px); z-index: 0; opacity: 0.6; animation: float 10s infinite ease-in-out; }
+        .blob-1 { top: 10%; left: 10%; width: 300px; height: 300px; background: #bfdbfe; border-radius: 40% 60% 70% 30%; }
+        .blob-2 { bottom: 10%; right: 10%; width: 400px; height: 400px; background: #ddd6fe; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 0 20px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #0f172a, #334155); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (min-width: 768px) { .hero h1 { font-size: 5.5rem; } }
+
+        /* --- 5. Tech Marquee --- */
+        .marquee-container { background: white; padding: 2rem 0; overflow: hidden; border-bottom: 1px solid #e2e8f0; }
+        .marquee-content { display: flex; gap: 4rem; animation: scroll 30s linear infinite; width: max-content; }
+        .tech-item { font-size: 1.5rem; color: var(--gray); font-weight: 600; display: flex; align-items: center; gap: 10px; opacity: 0.7; filter: grayscale(100%); transition: 0.3s; }
+        .tech-item:hover { filter: grayscale(0%); opacity: 1; color: var(--primary); transform: scale(1.05); }
+        @keyframes scroll { to { transform: translateX(-50%); } }
+
+        /* --- 6. Bento Grid --- */
+        .bento-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 0; }
+        @media(min-width: 768px) { .bento-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 300px); } .bento-large { grid-column: span 2; } .bento-tall { grid-row: span 2; } }
+        .bento-card { background: white; border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; }
+        .bento-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); border-color: rgba(59, 130, 246, 0.3); }
+        .bento-icon { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* --- 7. Projects Section --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .project-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; text-decoration: none; display: flex; flex-direction: column; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .project-image { height: 220px; width: 100%; position: relative; overflow: hidden; }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .project-card:hover .project-image img { transform: scale(1.05); }
+        .project-content { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .project-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 700; }
+        .project-title { font-size: 1.35rem; font-weight: 700; color: var(--darker); margin: 0; line-height: 1.3; }
+        .project-link-icon { margin-top: 1rem; color: var(--primary); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
+        .project-card:hover .project-link-icon { gap: 10px; }
+
+        /* --- 8. Stats --- */
+        .stats-section { background: var(--darker); color: white; padding: 4rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; text-align: center; }
+        @media(min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+        .stat-number, .stat-display { font-size: 3rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk'; }
+        .stat-label { font-size: 0.9rem; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- 9. Industries --- */
+        .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .ind-card { background: white; padding: 2.5rem 2rem; border-radius: 24px; text-align: center; border: 1px solid #f1f5f9; transition: 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        .ind-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); border-color: rgba(59, 130, 246, 0.2); }
+        .ind-icon-wrapper { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; transition: 0.3s; }
+        .style-edu { background: #eff6ff; color: #3b82f6; }
+        .style-health { background: #fef2f2; color: #ef4444; }
+        .style-hospitality { background: #fff7ed; color: #f97316; }
+        .style-ecom { background: #f0fdf4; color: #10b981; }
+        .ind-card:hover .style-edu { background: #3b82f6; color: white; transform: rotate(-5deg); }
+        .ind-card:hover .style-health { background: #ef4444; color: white; transform: rotate(5deg); }
+        .ind-card:hover .style-hospitality { background: #f97316; color: white; transform: rotate(-5deg); }
+        .ind-card:hover .style-ecom { background: #10b981; color: white; transform: rotate(5deg); }
+        .ind-card h4 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--darker); }
+        .ind-card p { font-size: 0.95rem; color: #64748b; line-height: 1.5; }
+
+        /* --- 10. Contact Section --- */
+        .contact-wrapper { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        @media (min-width: 900px) { .contact-wrapper { grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; } }
+        .info-list { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem; }
+        .info-item { display: flex; align-items: flex-start; gap: 1.2rem; }
+        .info-icon { width: 50px; height: 50px; background: #eff6ff; color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; transition: 0.3s; }
+        .info-item:hover .info-icon { background: var(--primary); color: white; transform: rotate(10deg); }
+        .info-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--darker); }
+        .info-text { color: #64748b; font-size: 0.95rem; line-height: 1.5; }
+        .info-text.link { text-decoration: none; transition: 0.3s; }
+        .info-text.link:hover { color: var(--primary); }
+        .govt-badge { display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; }
+        .govt-badge img { height: 45px; width: auto; }
+        .govt-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #94a3b8; }
+        .govt-id { font-weight: 700; color: var(--darker); font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+        
+        /* Advanced Form Styling */
+        .form-container { background: white; padding: 2.5rem; border-radius: 24px; box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; }
+        .input-group { margin-bottom: 1.5rem; position: relative; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--dark); transition: 0.3s; }
+        .input-group input, .input-group textarea { width: 100%; padding: 14px 16px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fcfcfc; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; transition: all 0.3s ease; outline: none; color: var(--dark); }
+        .input-group input:focus, .input-group textarea:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
+        
+        /* Loading Spinner for Button */
+        .loading-spinner { display: none; width: 20px; height: 20px; border: 2px solid #ffffff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- Custom Toast Notification --- */
+        #toast-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
+        .toast { min-width: 320px; background: white; color: var(--dark); padding: 16px 24px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px; opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); border-left: 5px solid; }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast-success { border-color: var(--success); }
+        .toast-error { border-color: var(--error); }
+        .toast i { font-size: 1.4rem; }
+        .toast-success i { color: var(--success); }
+        .toast-error i { color: var(--error); }
+        .toast span { font-weight: 500; font-size: 0.95rem; }
+
+        /* --- Footer --- */
+        footer { background: white; padding: 4rem 0 2rem; border-top: 1px solid #e2e8f0; }
+        .udyam-card { display: inline-flex; align-items: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 20px; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-top: 10px; }
+        .udyam-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .udyam-icon img { width: 50px; height: auto; margin-right: 15px; }
+        .udyam-info { display: flex; flex-direction: column; text-align: left; }
+        .udyam-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; font-weight: 700; }
+        .udyam-number { font-size: 1rem; font-weight: 700; color: var(--darker); font-family: 'Space Grotesk', monospace; }
+        .udyam-verify { font-size: 0.8rem; color: var(--primary); margin-top: 2px; display: flex; align-items: center; gap: 5px; }
+
+        /* --- Mobile Menu & Modal & FAB --- */
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transform: translateY(-100%); transition: 0.4s ease-in-out; }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu a { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; }
+        
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .modal-overlay.open { display: flex; opacity: 1; }
+        .modal-card { background: white; padding: 2.5rem; border-radius: 24px; width: 90%; max-width: 450px; transform: scale(0.9); transition: 0.3s; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        .modal-overlay.open .modal-card { transform: scale(1); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .modal-header h3 { font-size: 1.5rem; margin: 0; color: var(--darker); }
+        .modal-header button { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--gray); transition: 0.3s; }
+        .modal-header button:hover { color: var(--error); transform: rotate(90deg); }
+
+        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .fab-options { display: flex; flex-direction: column-reverse; gap: 15px; margin-bottom: 5px; opacity: 0; transform: translateY(20px) scale(0.8); pointer-events: none; transition: 0.3s; }
+        .fab-options.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+        .fab-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 1.2rem; transition: transform 0.2s; }
+        .fab-btn:hover { transform: scale(1.1); }
+        .fab-main { width: 65px; height: 65px; border-radius: 50%; background: var(--darker); color: white; border: none; font-size: 1.8rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .fab-main.active { transform: rotate(45deg); background: #ef4444; }
     </style>
 </head>
 
 <body>
 
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
+    <div id="toast-container"></div>
 
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-content">
-            <a href="/" class="logo">
-                <img src="logo-sswebtech.png" alt="SSWebTech Logo">
+    <header id="navbar">
+        <div class="nav-wrapper">
+            <a href="#" class="logo">
+                <img src="logo-sswebtech__1_-removebg-preview copy.png" alt="SS WebTech" style="height: 55px; width: auto;">
             </a>
 
-            <nav>
+            <nav class="desktop-nav">
+                <a href="about.html">About</a>
                 <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
                 <a href="#industries">Industries</a>
+                <a href="#stats">Why Us</a>
                 <a href="#contact">Contact</a>
+                <button onclick="openModal()" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                    Let's Talk
+                </button>
             </nav>
 
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; background: none; border: none; font-size: 2rem;">×</button>
+        <a href="about.html" onclick="toggleMenu()">About</a>
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#projects" onclick="toggleMenu()">Projects</a>
+        <a href="#industries" onclick="toggleMenu()">Industries</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <button onclick="openModal(); toggleMenu()" class="btn btn-primary">Start Project</button>
+    </div>
+
     <section class="hero">
+        <div class="hero-content">
+            <div style="margin-bottom: 20px; display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.6); border-radius: 30px; font-size: 0.9rem; font-weight: 600; border: 1px solid white;">
+                ✨ Innovating Digital Experiences
+            </div>
+            <h1>
+                Building The <br>
+                <span class="gradient-text">Future of Web</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: #475569; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                We craft high-performance websites, scalable web applications, IoT solutions, and digital strategies that drive real business growth.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button onclick="openModal()" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </button>
+                <a href="#projects" class="btn" style="background: white; color: var(--dark); border: 1px solid #cbd5e1;">
+                    View Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <div class="tech-item"><i class="fab fa-react" style="color: #61DAFB;"></i> React</div>
+            <div class="tech-item"><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</div>
+            <div class="tech-item"><i class="fab fa-python" style="color: #3776AB;"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-aws" style="color: #FF9900;"></i> AWS</div>
+            <div class="tech-item"><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</div>
+            <div class="tech-item"><i class="fab fa-wordpress" style="color: #21759B;"></i> WordPress</div>
+            <div class="tech-item"><i class="fab fa-react" style="color: #61DAFB;"></i> React Native</div>
+            <div class="tech-item"><i class="fas fa-layer-group" style="color: #000020;"></i> Expo</div>
+            <div class="tech-item"><i class="fas fa-database" style="color: #47A248;"></i> MongoDB</div>
+            <div class="tech-item"><i class="fas fa-network-wired" style="color: #E0234E;"></i> IoT</div>
+            <div class="tech-item"><i class="fab fa-react" style="color: #61DAFB;"></i> React</div>
+            <div class="tech-item"><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</div>
+            <div class="tech-item"><i class="fab fa-python" style="color: #3776AB;"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-aws" style="color: #FF9900;"></i> AWS</div>
+            <div class="tech-item"><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</div>
+            <div class="tech-item"><i class="fab fa-wordpress" style="color: #21759B;"></i> WordPress</div>
+            <div class="tech-item"><i class="fab fa-react" style="color: #61DAFB;"></i> React Native</div>
+            <div class="tech-item"><i class="fas fa-layer-group" style="color: #000020;"></i> Expo</div>
+            <div class="tech-item"><i class="fas fa-database" style="color: #47A248;"></i> MongoDB</div>
+            <div class="tech-item"><i class="fas fa-network-wired" style="color: #E0234E;"></i> IoT</div>
+        </div>
+    </div>
+
+    <section id="services" class="section">
         <div class="container">
-            <div class="anim-fade">
-                <span class="badge anim-pulse">🚀 Professional Web Development Services</span>
-                <h1>
-                    <span class="block">Building Digital</span>
-                    <span class="gradient-text anim-gradient-text">Excellence</span>
-                </h1>
-                <p class="anim-fade anim-delay-1">
-                    Transform your vision into reality with our cutting-edge web development solutions.
-                    We specialize in creating powerful, scalable websites for educational institutions,
-                    healthcare providers, hospitality businesses, and more.
-                </p>
-                <div class="btn-group anim-fade anim-delay-2">
-                    <button class="btn btn-primary btn-lg" onclick="openContactForm()">Start Your Project <i
-                            class="fas fa-arrow-right ml-2"></i></button>
-                    <button class="btn btn-outline btn-lg">View Our Work</button>
-                </div>
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Our Expertise</h2>
+                <p style="color: #64748b;">Holistic digital services tailored for modern businesses.</p>
             </div>
 
-            <!-- Feature Tags -->
-            <div class="features">
-                <div class="feature-badge anim-fade anim-delay-3">
-                    <i class="fas fa-check-circle"></i>
-                    Responsive Design
+            <div class="bento-grid">
+                <div class="bento-card bento-large">
+                    <div>
+                        <i class="fas fa-layer-group bento-icon"></i>
+                        <h3>Custom Web Development</h3>
+                        <p style="color: #64748b; margin-top: 10px;">
+                            We build bespoke websites from scratch using the latest frameworks. Fast, secure, and fully responsive solutions that fit your brand perfectly.
+                        </p>
+                    </div>
+                    <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg" alt="Web Dev" style="width: 200px; align-self: flex-end; opacity: 0.8; mix-blend-mode: multiply;">
                 </div>
-                <div class="feature-badge anim-fade anim-delay-4">
-                    <i class="fas fa-check-circle"></i>
-                    SEO Optimized
+
+                <div class="bento-card bento-tall" style="background: var(--darker); color: white;">
+                    <div>
+                        <i class="fas fa-mobile-alt bento-icon" style="background: none; color: var(--accent); -webkit-text-fill-color: initial;"></i>
+                        <h3 style="color: white;">Mobile Apps</h3>
+                        <p style="color: #94a3b8; margin-top: 10px;">
+                            Native and Cross-platform mobile applications that provide seamless user experiences using <strong>React Native</strong> and <strong>Expo</strong>.
+                        </p>
+                    </div>
+                    <div style="margin-top: auto; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 16px;">
+                        <ul style="list-style: none; color: #cbd5e1; font-size: 0.9rem;">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 8px;"></i> iOS & Android</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 8px;"></i> IoT Integration</li>
+                            <li><i class="fas fa-check" style="color: var(--accent); margin-right: 8px;"></i> MongoDB Backend</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-badge anim-fade anim-delay-3">
-                    <i class="fas fa-check-circle"></i>
-                    Fast Loading Speed
+
+                <div class="bento-card">
+                    <i class="fas fa-rocket bento-icon"></i>
+                    <h3>SEO & Growth</h3>
+                    <p style="color: #64748b;">Technical SEO and performance optimization to rank higher.</p>
                 </div>
-                <div class="feature-badge anim-fade anim-delay-4">
-                    <i class="fas fa-check-circle"></i>
-                    Mobile-First Approach
-                </div>
-                <div class="feature-badge anim-fade anim-delay-3">
-                    <i class="fas fa-check-circle"></i>
-                    Modern UI/UX
-                </div>
-                <div class="feature-badge anim-fade anim-delay-4">
-                    <i class="fas fa-check-circle"></i>
-                    Cross-Browser Compatible
+
+                <div class="bento-card">
+                    <i class="fas fa-microchip bento-icon"></i>
+                    <h3>IoT Projects</h3>
+                    <p style="color: #64748b;">Smart home automation, industrial IoT, and hardware-software integration using Arduino & ESP Microcontrollers.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section section-white">
+    <section id="projects" class="section" style="background: linear-gradient(to bottom, #f8fafc, white);">
         <div class="container">
-            <div class="section-title anim-fade">
-                <h2>Our Services</h2>
-                <p>Comprehensive web development solutions tailored to your business needs</p>
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase;">Our Work</span>
+                <h2 style="font-size: 2.5rem; margin-top: 10px;">Latest Projects</h2>
+                <p style="color: #64748b; max-width: 600px; margin: 10px auto 0;">Explore some of the premium websites and applications we've delivered recently.</p>
             </div>
 
-            <div class="grid grid-cols-1 grid-cols-2 gap-8">
-                <div class="card card-wave anim-scale anim-delay-1">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-globe fa-2x" style="color: var(--blue-600);"></i>
-                        </div>
-                        <h3 class="card-title">Custom Website Development</h3>
+            <div class="projects-grid">
+                <a href="https://vinnarinstituteoffashiondesigning.in/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=500&q=60" alt="Fashion Design">
                     </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Tailored websites built with modern technologies to meet your specific needs and
-                            requirements.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card card-wave anim-scale anim-delay-2">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-code fa-2x" style="color: var(--green-600);"></i>
-                        </div>
-                        <h3 class="card-title">Web Application Development</h3>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Full-stack web applications with robust functionality and seamless user experience.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card card-wave anim-scale anim-delay-3">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-bolt fa-2x" style="color: var(--purple-600);"></i>
-                        </div>
-                        <h3 class="card-title">Performance Optimization</h3>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Lightning-fast websites optimized for speed, SEO, and user engagement.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card card-wave anim-scale anim-delay-4">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-users fa-2x" style="color: var(--orange-600);"></i>
-                        </div>
-                        <h3 class="card-title">Maintenance & Support</h3>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Ongoing support and maintenance to keep your website running smoothly.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section id="industries" class="section section-gradient">
-        <div class="container">
-            <div class="section-title anim-fade">
-                <h2>Industries We Serve</h2>
-                <p>Delivering specialized solutions across diverse sectors</p>
-            </div>
-
-            <div class="grid grid-cols-1 grid-cols-3">
-                <a href="institution.html" class="card card-scale industry-card anim-fade">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">🎓</div>
-                        <h3 class="card-title">Educational Institutions</h3>
-                        <p class="card-description">Colleges & Schools</p>
+                    <div class="project-content">
+                        <span class="project-category">Education / Fashion</span>
+                        <h3 class="project-title">Vinnar Institute of Fashion Designing</h3>
+                        <div class="project-link-icon">View Live Site <i class="fas fa-arrow-right"></i></div>
                     </div>
                 </a>
 
-                <div class="card card-scale industry-card anim-fade anim-delay-1">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">🏥</div>
-                        <h3 class="card-title">Healthcare</h3>
-                        <p class="card-description">Hospitals & Clinics</p>
+                <a href="https://dtyasaswini.netlify.app/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=500&q=60" alt="Hospital">
                     </div>
-                </div>
+                    <div class="project-content">
+                        <span class="project-category">Hospital</span>
+                        <h3 class="project-title">DT Yasaswini</h3>
+                        <div class="project-link-icon">View Live Site <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
 
-                <div class="card card-scale industry-card anim-fade anim-delay-2">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">🏨</div>
-                        <h3 class="card-title">Hospitality</h3>
-                        <p class="card-description">Hotels & Resorts</p>
+                <a href="https://vinnarfashion.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=60" alt="Attendance">
                     </div>
-                </div>
+                    <div class="project-content">
+                        <span class="project-category">Attendance Portal</span>
+                        <h3 class="project-title">Vinnar Institute</h3>
+                        <div class="project-link-icon">View Live Site <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
 
-                <div class="card card-scale industry-card anim-fade">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">🚀</div>
-                        <h3 class="card-title">Events</h3>
-                        <p class="card-description">Hackathons & Conferences</p>
+                <a href="https://amanthefitfreak.netlify.app/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=60" alt="Fitness">
                     </div>
-                </div>
+                    <div class="project-content">
+                        <span class="project-category">Health & Fitness</span>
+                        <h3 class="project-title">Aman The Fit Freak</h3>
+                        <div class="project-link-icon">View Live Site <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
 
-                <div class="card card-scale industry-card anim-fade anim-delay-1">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">🏢</div>
-                        <h3 class="card-title">Corporate</h3>
-                        <p class="card-description">Businesses & Startups</p>
+                <a href="https://deccanphotography.netlify.app/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=500&q=60" alt="Photography">
                     </div>
-                </div>
+                    <div class="project-content">
+                        <span class="project-category">Photography - Quotation</span>
+                        <h3 class="project-title">Deccan Photography</h3>
+                        <div class="project-link-icon">View Live Site <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="card card-scale industry-card anim-fade anim-delay-2">
-                    <div class="card-header">
-                        <div class="industry-icon anim-float">💝</div>
-                        <h3 class="card-title">Non-Profit</h3>
-                        <p class="card-description">NGOs & Foundations</p>
-                    </div>
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number" data-target="50">0+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="10">0+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="2">0+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div>
+                    <div class="stat-display">24/7</div>
+                    <div class="stat-label">Support Available</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section section-white">
+    <section id="industries" class="section">
         <div class="container">
-            <div class="about-content">
-                <div class="anim-fade">
-                    <h2 class="section-title">Why Choose SSWebTech?</h2>
-                    <p class="mb-8">
-                        With years of experience in web development, we combine technical expertise
-                        with creative design to deliver exceptional digital solutions that drive results.
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem;">Industries We Transform</h2>
+            </div>
+            
+            <div class="industry-grid">
+                <div class="ind-card">
+                    <div class="ind-icon-wrapper style-edu"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Education</h4><p>LMS, Student Portals & Admin Dashboards</p>
+                </div>
+                <div class="ind-card">
+                    <div class="ind-icon-wrapper style-health"><i class="fas fa-heart-pulse"></i></div>
+                    <h4>Healthcare</h4><p>Clinic Management & Appointment Systems</p>
+                </div>
+                <div class="ind-card">
+                    <div class="ind-icon-wrapper style-hospitality"><i class="fas fa-hotel"></i></div>
+                    <h4>Hospitality</h4><p>Hotel Booking & Restaurant Management</p>
+                </div>
+                <div class="ind-card">
+                    <div class="ind-icon-wrapper style-ecom"><i class="fas fa-cart-shopping"></i></div>
+                    <h4>E-Commerce</h4><p>Online Stores & Payment Integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="background: white;">
+        <div class="container">
+            <div class="contact-wrapper">
+                
+                <div class="contact-details fade-up">
+                    <span style="font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;">Contact Us</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">Get In Touch</h2>
+                    <p style="color: #64748b; margin-bottom: 2.5rem; line-height: 1.6;">
+                        We are here to answer any questions you may have about our experiences. Reach out to us and we'll respond as soon as we can.
                     </p>
-                    <div class="about-points">
-                        <div class="about-point anim-fade anim-delay-1">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Expert team of developers and designers</span>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4 class="info-title">Visit Us</h4>
+                                <p class="info-text">K Ramapuram, Rayachoty(M),<br>Annamayya Dist, AP - 516269</p>
+                            </div>
                         </div>
-                        <div class="about-point anim-fade anim-delay-2">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Cutting-edge technologies and frameworks</span>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4 class="info-title">Email Us</h4>
+                                <a href="mailto:yarrusasi@gmail.com" class="info-text link">yarrusasi@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="about-point anim-fade anim-delay-3">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Timely delivery and ongoing support</span>
-                        </div>
-                        <div class="about-point anim-fade anim-delay-4">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Competitive pricing and flexible packages</span>
-                        </div>
-                        <div class="about-point anim-fade anim-delay-5">
-                            <i class="fas fa-check-circle"></i>
-                            <span>100% satisfaction guarantee</span>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4 class="info-title">Call Us</h4>
+                                <a href="tel:+919391502293" class="info-text link">+91 9391502293</a>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="mt-8 anim-fade anim-delay-6">
-                        <a href="/about.html" class="btn btn-primary">
-                            Learn More About Us
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+
+                    <div class="govt-badge">
+                        <img src="img/image.png" alt="MSME Logo"> 
+                        <div class="govt-text">
+                            <span class="govt-label">Govt. Recognized</span><br>
+                            <span class="govt-id">UDYAM-AP-24-0048466</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="cta-box anim-scale">
-                    <div class="cta-content">
-                        <h3 class="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-                        <p class="mb-6">
-                            Let's discuss your project and bring your vision to life with our expert team.
-                        </p>
-                        <a href="#contact" class="btn btn-primary w-full">Schedule a Consultation</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="form-container fade-up delay-100">
+                    <form id="mainContactForm">
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Send us a message</h3>
+                        
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="from_name" placeholder="John Doe" required>
+                        </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section section-primary">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-4 anim-fade">Get In Touch</h2>
-                <p class="text-xl mb-12 opacity-90 anim-fade anim-delay-1">
-                    Ready to transform your digital presence? Let's start the conversation.
-                </p>
-                <br>
-                <div class="contact-info">
-                    <div class="contact-item anim-fade anim-delay-2">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>yarrusasi@gmail.com</p>
-                    </div>
-                    <div class="contact-item anim-fade anim-delay-3">
-                        <i class="fas fa-phone"></i>
-                        <h3>Call Us</h3>
-                        <p>9391502293</p>
-                    </div>
-                    <div class="contact-item anim-fade anim-delay-4">
-                        <i class="fas fa-map-pin"></i>
-                        <h3>Visit Us</h3>
-                        <p>K Ramapuram, Rayachoty(M), Annamayya(D)</p>
-                    </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="reply_to" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Message & Phone Number</label>
+                            <textarea name="message" rows="4" placeholder="Tell us about your project and leave your phone number..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <span class="btn-text">Send Message</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+                    </form>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about anim-fade">
-                    <a href="/" class="footer-logo">
-                        <img src="logo-sswebtech.png" alt="SSWebTech Logo">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid #e2e8f0; padding-top: 2rem;">
+                <div>
+                    <h4 style="margin-bottom: 5px;">SSWebTech</h4>
+                    <p style="font-size: 0.9rem; color: #64748b;">&copy; 2025 All Rights Reserved.</p>
+                    <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE=" target="" class="udyam-card">
+                        <div class="udyam-icon"><img src="img/image.png" alt="MSME Logo"></div>
+                        <div class="udyam-info">
+                            <span class="udyam-label">MSME Registered</span>
+                            <span class="udyam-number">UDYAM-AP-24-0048466</span>
+                            <span class="udyam-verify">Click to Verify <i class="fas fa-external-link-alt"></i></span>
+                        </div>
                     </a>
-                    <p class="footer-text">
-                        Building the future of web development, one project at a time. Your trusted partner for digital
-                        transformation.
-                    </p>
-                    <p class="footer-text">
-                        CEO & Founder: YARRU SASIDHAR ROYAL
-                    </p>
-                    <p class="footer-text">
-                        Manager: YARRU RAJASEKHAR
-                    </p>
-                    <div class="footer-msme"
-                        style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block; text-align: center;">
-                        <a href="https://udyamregistration.gov.in/verifyudyambarcode.aspx?verifyudrn=peNEb9e6JOsb0Ww7DYAFuJyvU7qFGlx9YRiUn/ftFNE="
-                            target="" style="text-decoration: none;">
-                            <img src="img/image.png" alt="MSME Udyam" style="width: 150px; height: auto;">
-                            <p style="margin: 10px 0 0; color: black; font-weight: bold;">UDYAM-AP-24-0048466</p>
-                        </a>
-                    </div>
                 </div>
-
-                <div class="anim-fade anim-delay-1">
-                    <h3 class="footer-heading">Services</h3>
-                    <div class="footer-links">
-                        <a href="#">Website Development</a>
-                        <a href="#">Web Applications</a>
-                        <a href="#">E-commerce Solutions</a>
-                        <a href="#">Maintenance & Support</a>
-                    </div>
-                </div>
-
-                <div class="anim-fade anim-delay-2">
-                    <h3 class="footer-heading">Company</h3>
-                    <div class="footer-links">
-                        <a href="/about.html">About Us</a>
-                        <a href="#">Our Team</a>
-                        <a href="#">Careers</a>
-                        <a href="#contact">Contact</a>
-                    </div>
+                <div style="text-align: right;">
+                    <p style="font-size: 0.9rem; color: #64748b;">Founder: Yarru Sasidhar Royal</p>
+                    <p style="font-size: 0.9rem; color: #64748b;">Manager: Yarru Rajasekhar</p>
                 </div>
             </div>
-
-            <div class="footer-divider anim-fade anim-delay-3">
-                <p>&copy; 2025 SSWebTech. All rights reserved. Built with excellence and innovation.</p>
-            </div>
-        </div>
-        <!-- Floating Action Button -->
-        <div class="fab-container">
-            <div class="fab-actions">
-                <a href="tel:+919391502293" class="fab-action fab-phone">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://wa.me/919391502293" target="_blank" class="fab-action fab-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="mailto:yarrusasi@gmail.com" class="fab-action fab-email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <button class="fab-main">
-                <i class="fas fa-envelope"></i>
-            </button>
         </div>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <div class="fab-container">
+        <div class="fab-options" id="fabOptions">
+            <a href="https://wa.me/919391502293" target="_blank" class="fab-btn" style="background: #25D366;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+919391502293" class="fab-btn" style="background: #3b82f6;" title="Call Us"><i class="fas fa-phone"></i></a>
+            <a href="mailto:yarrusasi@gmail.com" class="fab-btn" style="background: #ea4335;" title="Email Us"><i class="fas fa-envelope"></i></a>
+        </div>
+        <button class="fab-main" onclick="toggleFab()"><i class="fas fa-comment-dots" id="fabIcon"></i></button>
+    </div>
+
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Let's Talk</h3>
+                <button onclick="closeModal()">×</button>
+            </div>
+            <form id="contactForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="from_name" required placeholder="Your Name">
+                </div>
+                
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="reply_to" required placeholder="email@example.com">
+                </div>
+                
+                <div class="input-group">
+                    <label>Message & Phone Number</label>
+                    <textarea name="message" rows="4" required placeholder="Tell us about your project and leave your phone number..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span class="btn-text">Send Message</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Scroll Animation
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.anim-fade, .anim-scale');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
 
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('animated');
-                }
-            });
+        // Mobile Menu
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+
+        // Modal Logic
+        function openModal() {
+            document.getElementById('quoteModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
-
-        // Floating Action Button
-        const fabContainer = document.querySelector('.fab-container');
-        const fabMain = document.querySelector('.fab-main');
-        if (fabMain) {
-            fabMain.addEventListener('click', () => {
-                fabContainer.classList.toggle('active');
-                const icon = fabMain.querySelector('i');
-                if (fabContainer.classList.contains('active')) {
-                    icon.classList.remove('fa-envelope');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-envelope');
-                }
-            });
+        function closeModal() {
+            document.getElementById('quoteModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
         }
-
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            animateOnScroll();
-
-            // Observe elements for animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.anim-fade, .anim-scale').forEach(element => {
-                observer.observe(element);
-            });
+        document.getElementById('quoteModal').addEventListener('click', (e) => {
+            if(e.target === document.getElementById('quoteModal')) closeModal();
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add animation to elements on hover
-        document.querySelectorAll('.card, .btn, .about-point, .feature-badge').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.classList.add('hover-animate');
-            });
-
-            element.addEventListener('mouseleave', () => {
-                element.classList.remove('hover-animate');
-            });
-        });
-
-        emailjs.init('TbMGfm4A1K9eEqXz7');
-        console.log('EmailJS initialized');
-
-        let contactFormOpen = false;
-        let isSubmitting = false;
-
-        function openContactForm() {
-            if (contactFormOpen) return;
-
-            const formHtml = `
-                <div id="contact-form" style="
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: #fff;
-                        padding: 12px;
-                        border-radius: 8px;
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-                        z-index: 1000;
-                        width: 90%;
-                        max-width: 350px;
-                        display: none;
-                    ">
-                        <div style="
-                            text-align: center;
-                            margin-bottom: 24px;
-{{ ... }}
-{{ ... }}
-                            
-                            @media (max-width: 768px) {
-                                margin-bottom: 16px;
-                            }
-                        ">
-                            <h2 style="
-                                color: var(--blue-600);
-                                font-weight: 600;
-                                margin-bottom: 12px;
-                                font-size: 24px;
-                                
-                                @media (max-width: 768px) {
-                                    font-size: 20px;
-                                }
-                            ">Contact Us</h2>
-                            <p style="
-                                color: #64748b;
-                                font-size: 16px;
-                                line-height: 1.5;
-                                
-                                @media (max-width: 768px) {
-                                    font-size: 14px;
-                                }
-                            ">We're here to help! Fill out the form below and our team will get back to you shortly.</p>
-                        </div>
-                        <form id="contactForm" style="
-                            display: flex;
-                            flex-direction: column;
-                            gap: 10px;
-                            width: 100%;
-                        ">
-                            <div>
-                                <label style="
-                                    color: #475569;
-                                    font-weight: 500;
-                                    display: block;
-                                    margin-bottom: 8px;
-                                    font-size: 14px;
-                                ">Name:</label>
-                                <input type="text" id="from_name" name="from_name" required style="
-                                    width: 100%;
-                                    padding: 10px;
-                                    border: 1px solid #e2e8f0;
-                                    border-radius: 4px;
-                                    font-size: 14px;
-                                    transition: all 0.3s ease;
-                                ">
-                            </div>
-                            <div>
-                                <label style="
-                                    color: #475569;
-                                    font-weight: 500;
-                                    display: block;
-                                    margin-bottom: 8px;
-                                    font-size: 14px;
-                                ">Email:</label>
-                                <input type="email" id="reply_to" name="reply_to" required style="
-                                    width: 100%;
-                                    padding: 12px;
-                                    border: 2px solid #e2e8f0;
-                                    border-radius: 8px;
-                                    font-size: 16px;
-                                    transition: all 0.3s ease;
-                                    
-                                    @media (max-width: 768px) {
-                                        padding: 10px;
-                                        font-size: 14px;
-                                    }
-                                ">
-                            </div>
-                            <div>
-                                <label style="
-                                    color: #475569;
-                                    font-weight: 500;
-                                    display: block;
-                                    margin-bottom: 8px;
-                                    font-size: 14px;
-                                ">Message:</label>
-                                <textarea id="message" name="message" required style="
-                                    width: 100%;
-                                    padding: 10px;
-                                    border: 1px solid #e2e8f0;
-                                    border-radius: 4px;
-                                    font-size: 14px;
-                                    height: 120px;
-                                    resize: vertical;
-                                    transition: all 0.3s ease;
-                                " placeholder="Please include your phone number in the message."></textarea>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: center;
-                                gap: 12px;
-                                
-                                @media (max-width: 768px) {
-                                    flex-direction: column;
-                                    gap: 8px;
-                                }
-                            ">
-                                <button type="submit" class="btn btn-primary btn-lg" style="
-                                    width: 100%;
-                                    padding: 10px 16px;
-                                    font-size: 14px;
-                                    font-weight: 500;
-                                    transition: all 0.3s ease;
-                                ">
-                                    Send Message
-                                </button>
-                                <button type="button" onclick="document.getElementById('contact-form').remove(); contactFormOpen = false;" class="btn btn-outline btn-lg" style="
-                                    width: 100%;
-                                    padding: 10px 16px;
-                                    font-size: 14px;
-                                    font-weight: 500;
-                                    transition: all 0.3s ease;
-                                ">
-                                    Close
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', formHtml);
-
-            // Show the form
-            const form = document.getElementById('contact-form');
-            form.style.display = 'block';
-            contactFormOpen = true;
-
-            // Close form when clicking outside
-            form.addEventListener('click', function (e) {
-                if (e.target === form) {
-                    closeContactForm();
-                }
-            });
-
-            document.getElementById('contactForm').addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                // Prevent multiple submissions
-                if (isSubmitting) {
-                    event.preventDefault();
-                    return;
-                }
-
-                isSubmitting = true;
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-
-                emailjs.sendForm('service_0lljehp', 'template_p0qr6id', this)
-                    .then(function () {
-                        const successMessage = document.createElement('div');
-                        successMessage.style.position = 'fixed';
-                        successMessage.style.top = '50%';
-                        successMessage.style.left = '50%';
-                        successMessage.style.transform = 'translate(-50%, -50%)';
-                        successMessage.style.backgroundColor = '#f0f9ff';
-                        successMessage.style.padding = '30px 40px';
-                        successMessage.style.borderRadius = '15px';
-                        successMessage.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.1)';
-                        successMessage.style.zIndex = '1001';
-                        successMessage.style.display = 'flex';
-                        successMessage.style.flexDirection = 'column';
-                        successMessage.style.alignItems = 'center';
-                        successMessage.style.gap = '15px';
-                        successMessage.style.textAlign = 'center';
-
-                        successMessage.innerHTML = `
-                            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
-                                <i class="fas fa-check-circle" style="color: #0369a1; font-size: 28px; margin-right: 10px;"></i>
-                                <h3 style="
-                                    color: #0369a1;
-                                    font-weight: 600;
-                                    font-size: 24px;
-                                    margin: 0;
-                                    
-                                    @media (max-width: 768px) {
-                                        font-size: 20px;
-                                    }
-                                ">Thank you for your message!</h3>
-                            </div>
-                            <p style="
-                                color: #0369a1;
-                                font-size: 16px;
-                                line-height: 1.6;
-                                max-width: 400px;
-                                
-                                @media (max-width: 768px) {
-                                    font-size: 14px;
-                                    max-width: 300px;
-                                }
-                            ">Our team will contact you soon to discuss your project. We appreciate your interest in SS Web Tech.</p>
-                        `;
-
-                        // Add success message to the form
-                        const form = document.getElementById('contact-form');
-                        if (form) {
-                            form.appendChild(successMessage);
-
-                            // Remove all form inputs
-                            const inputs = form.querySelectorAll('input, textarea');
-                            inputs.forEach(input => {
-                                input.value = '';
-                            });
-
-                            // Disable submit button
-                            const submitButton = form.querySelector('button[type="submit"]');
-                            if (submitButton) {
-                                submitButton.disabled = true;
-                            }
-
-                            // Auto-close after 5 seconds
-                            setTimeout(() => {
-                                closeContactForm();
-                            }, 5000);
-                        }
-                    }, function (error) {
-                        console.error('EmailJS error:', error);
-                        isSubmitting = false;
-                        submitButton.disabled = false;
-                        submitButton.textContent = originalText;
-                        alert('Failed to send message. Please try again later. Error: ' + error.text);
-                        // Add error message to form
-                        const errorMessage = document.createElement('div');
-                        errorMessage.style.color = 'red';
-                        errorMessage.style.marginTop = '10px';
-                        errorMessage.textContent = 'Error: ' + error.text;
-                        this.appendChild(errorMessage);
-                        setTimeout(() => {
-                            errorMessage.remove();
-                        }, 5000);
-                    });
-            });
-
-            function closeContactForm() {
-                const form = document.getElementById('contact-form');
-                if (form) {
-                    form.remove();
-                    contactFormOpen = false;
-                }
+        // FAB Logic
+        function toggleFab() {
+            const options = document.getElementById('fabOptions');
+            const mainBtn = document.querySelector('.fab-main');
+            const icon = document.getElementById('fabIcon');
+            options.classList.toggle('show');
+            mainBtn.classList.toggle('active');
+            if (mainBtn.classList.contains('active')) {
+                icon.classList.remove('fa-comment-dots'); icon.classList.add('fa-plus'); 
+            } else {
+                icon.classList.add('fa-comment-dots'); icon.classList.remove('fa-plus');
             }
-
-            document.querySelector('a[href="#contact-form"]').addEventListener('click', function () {
-                document.getElementById('contact-form').style.display = 'block';
-            });
         }
+        document.addEventListener('click', function(event) {
+            const fabContainer = document.querySelector('.fab-container');
+            const options = document.getElementById('fabOptions');
+            const mainBtn = document.querySelector('.fab-main');
+            const icon = document.getElementById('fabIcon');
+            if (!fabContainer.contains(event.target) && options.classList.contains('show')) {
+                options.classList.remove('show');
+                mainBtn.classList.remove('active');
+                icon.classList.add('fa-comment-dots');
+                icon.classList.remove('fa-plus');
+            }
+        });
+
+        // Stats Animation
+        const statsSection = document.getElementById('stats');
+        let counted = false;
+        window.addEventListener('scroll', () => {
+            if(!counted && window.scrollY + window.innerHeight > statsSection.offsetTop) {
+                const counters = document.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    if(isNaN(target)) return;
+                    const duration = 2000; const increment = target / (duration / 16); 
+                    let current = 0;
+                    const updateCount = () => {
+                        current += increment;
+                        if(current < target) {
+                            counter.innerText = Math.ceil(current) + "+";
+                            requestAnimationFrame(updateCount);
+                        } else { counter.innerText = target + "+"; }
+                    };
+                    updateCount();
+                });
+                counted = true;
+            }
+        });
+
+        // Custom Toast Function
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            const icon = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
+            toast.innerHTML = `${icon} <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => toast.classList.add('show'), 100);
+
+            // Remove after 3s
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+
+        // Form Handler with Spinner & Toast
+        function handleFormSubmit(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const btnText = btn.querySelector('.btn-text');
+            const spinner = btn.querySelector('.loading-spinner');
+
+            // Loading State
+            btn.disabled = true;
+            if(btnText) btnText.style.display = 'none';
+            if(spinner) spinner.style.display = 'block';
+
+            emailjs.sendForm('service_0lljehp', 'template_p0qr6id', form)
+                .then(() => {
+                    showToast('Sent Successfully! Our team will contact you soon. Thank you.', 'success');
+                    form.reset();
+                    if(typeof closeModal === 'function') closeModal(); 
+                })
+                .catch((err) => {
+                    console.error("FAILED...", err);
+                    showToast('Failed to send message. Try again.', 'error');
+                })
+                .finally(() => {
+                    // Reset Button
+                    btn.disabled = false;
+                    if(btnText) btnText.style.display = 'block';
+                    if(spinner) spinner.style.display = 'none';
+                });
+        }
+        document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
+        document.getElementById('mainContactForm').addEventListener('submit', handleFormSubmit);
     </script>
 </body>
-
 </html>
