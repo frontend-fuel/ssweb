@@ -1,834 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - SSWebTech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>About Us | SSWebTech</title>
+
     <link rel="icon" href="logo.png" type="image/png">
+
+    <meta name="description" content="Meet the leadership team behind SSWebTech. Innovation, excellence, and a passion for digital transformation.">
+    <link rel="canonical" href="https://sswebtech.xyz/about.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Animation Classes */
-        .anim-fade {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .anim-fade.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .anim-delay-1 {
-            transition-delay: 0.2s;
-        }
-
-        .anim-delay-2 {
-            transition-delay: 0.4s;
-        }
-
-        .anim-scale {
-            transform: scale(0.95);
-            opacity: 0;
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease-out;
-        }
-
-        .anim-scale.animated {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .anim-float {
-            animation: floating 6s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Floating Action Button */
-        .fab-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .fab-main {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
-            color: white;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
-        }
-
-        .fab-main:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .fab-main.active {
-            transform: rotate(45deg);
-            background: var(--red-600);
-        }
-
-        .fab-actions {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        }
-
-        .fab-action {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            margin-bottom: 10px;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-        }
-
-        .fab-phone {
-            background-color: #25D366;
-        }
-
-        .fab-whatsapp {
-            background-color: #25D366;
-        }
-
-        .fab-email {
-            background-color: #EA4335;
-        }
-
-        .fab-action:hover {
-            transform: scale(1.15);
-        }
-
-        .fab-container.active .fab-action {
-            transform: scale(1);
-        }
-
-        /* Staggered animation for actions appearing */
-        .fab-container.active .fab-action:nth-child(1) {
-            transition-delay: 0.2s;
-        }
-
-        .fab-container.active .fab-action:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-
-        .fab-container.active .fab-action:nth-child(3) {
-            transition-delay: 0s;
-        }
-
-        /* Global Styles */
+        /* --- Shared Styles --- */
         :root {
-            --blue-600: #2563eb;
-            --blue-700: #1d4ed8;
-            --purple-600: #9333ea;
-            --purple-700: #7e22ce;
-            --cyan-500: #06b6d4;
-            --green-600: #16a34a;
-            --orange-600: #ea580c;
-            --red-600: #dc2626;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f1f5f9;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(to bottom right, #f8fafc, #e0f2fe, #c7d2fe);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
-        header {
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--gray-200);
-            position: sticky;
-            top: 0;
-            z-index: 50;
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--darker);
+            letter-spacing: -0.02em;
         }
 
-        .header-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .logo img,
-        .footer-logo img {
-            width: 150px;
-            /* Adjust width as needed */
-            height: auto;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--blue-600), var(--cyan-500));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 6rem 0; position: relative; }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            position: relative; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600;
+            overflow: hidden; transition: all 0.3s ease; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
-            color: white;
-            border: none;
+        .btn-primary { 
+            background: var(--darker); 
+            color: #ffffff !important; /* FORCED WHITE COLOR */
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.39); 
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.23); }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(to right, var(--blue-700), var(--purple-700));
+        /* --- Navbar --- */
+        header {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px;
+            z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 16px; padding: 0.5rem 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s;
         }
+        header.scrolled { top: 10px; padding: 0.4rem 1.5rem; background: rgba(255, 255, 255, 0.95); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 55px; width: auto; }
+        .desktop-nav { display: none; gap: 2rem; align-items: center; }
+        .desktop-nav a { font-weight: 500; color: var(--dark); transition: 0.3s; text-decoration: none; }
+        .desktop-nav a:hover { color: var(--primary); }
+        .desktop-nav a.active { color: var(--primary); font-weight: 700; }
+        @media(min-width: 900px) { .desktop-nav { display: flex; } .mobile-toggle { display: none; } }
 
-        /* Hero Section */
+        /* --- Hero --- */
         .hero {
-            position: relative;
-            padding: 5rem 0;
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600), #4f46e5);
-            color: white;
-            text-align: center;
+            padding: 180px 0 100px; text-align: center; position: relative; overflow: hidden;
+            background: linear-gradient(-45deg, #eff6ff, #dbeafe, #e0e7ff); background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .blob { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.6; animation: float 10s infinite ease-in-out; }
+        .blob-1 { top: 10%; left: 10%; width: 300px; height: 300px; background: #bfdbfe; border-radius: 40% 60% 70% 30%; }
+        .blob-2 { bottom: 10%; right: 10%; width: 400px; height: 400px; background: #ddd6fe; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } }
+        
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
 
-        .hero-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        /* --- Team Cards --- */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 1.5rem;
+        .team-card {
+            background: white; border-radius: 24px; padding: 2.5rem; text-align: center;
+            border: 1px solid rgba(0,0,0,0.05); transition: 0.4s; position: relative; overflow: hidden;
         }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 56rem;
-            margin: 0 auto 2rem;
-            line-height: 1.5;
+        .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); border-color: rgba(59, 130, 246, 0.3); }
+        .team-img {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem;
+            border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-
-        .btn-lg {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
+        .team-role {
+            color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;
         }
-
-        .btn-secondary {
-            background-color: white;
-            color: var(--purple-600);
-            border: none;
-        }
-
-        .btn-secondary:hover {
-            background-color: #e9d5ff;
-        }
-
-        /* Leadership Section */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            max-width: 42rem;
-            margin: 0 auto;
-        }
-
-        .grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: 1fr;
-        }
-
-        .grid-cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (max-width: 768px) {
-            .grid-cols-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .card {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        .card {
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            border: none;
-        }
-
-        .card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transform: translateY(-2px);
-        }
-
-        .card-header {
-            padding: 1.5rem;
-            text-align: center;
-            padding-bottom: 1rem;
-        }
-
-        .card-image {
-            width: 8rem;
-            height: 8rem;
-            margin: 0 auto 1.5rem;
-            position: relative;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            border-radius: 9999px;
-            object-fit: cover;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-image img {
-            transform: scale(1.05);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 0.5rem;
-        }
-
-        .card-subtitle {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--green-600);
-            margin-bottom: 0.5rem;
-        }
-
-        .card-meta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            margin-bottom: 1rem;
-        }
-
-        .card-meta i {
-            margin-right: 0.25rem;
-        }
-
-        .card-content {
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .card-detail {
-            display: flex;
-            align-items: center;
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 0.5rem;
-        }
-
-        .card-detail i {
-            margin-right: 0.5rem;
-            color: var(--blue-500);
-        }
-
-        .card-text {
-            color: var(--gray-700);
-            line-height: 1.625;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .badge-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            line-height: 1rem;
-            border: 1px solid var(--gray-200);
-            background-color: white;
-            color: var(--gray-700);
+            background: #f1f5f9; color: var(--dark); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
         }
 
-        .card-footer {
-            display: flex;
-            justify-content: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--gray-200);
-        }
+        /* --- Values Section --- */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .value-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid #e2e8f0; }
+        .value-icon { width: 60px; height: 60px; background: #eff6ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem; }
 
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--gray-300);
-            color: var(--gray-700);
-        }
+        /* --- Footer & FAB --- */
+        footer { background: white; padding: 4rem 0 2rem; border-top: 1px solid #e2e8f0; }
+        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .fab-options { display: flex; flex-direction: column-reverse; gap: 15px; margin-bottom: 5px; opacity: 0; transform: translateY(20px) scale(0.8); pointer-events: none; transition: 0.3s; }
+        .fab-options.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+        .fab-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 1.2rem; transition: transform 0.2s; }
+        .fab-btn:hover { transform: scale(1.1); }
+        .fab-main { width: 65px; height: 65px; border-radius: 50%; background: var(--darker); color: white; border: none; font-size: 1.8rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .fab-main.active { transform: rotate(45deg); background: #ef4444; }
 
-        .btn-outline:hover {
-            background-color: var(--gray-100);
-            border-color: var(--gray-300);
-        }
-
-        .btn-sm {
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-        }
-
-        /* Values Section */
-        .values-section {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .values-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        .value-card {
-            text-align: center;
-        }
-
-        .value-icon {
-            width: 4rem;
-            height: 4rem;
-            margin: 0 auto 1rem;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f3f4f6;
-            font-size: 2rem;
-        }
-
-        .icon-innovation {
-            color: var(--blue-600);
-        }
-
-        .icon-people {
-            color: var(--green-600);
-        }
-
-        .icon-excellence {
-            color: var(--purple-600);
-        }
-
-        .value-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 0.5rem;
-        }
-
-        .value-description {
-            color: var(--gray-600);
-            line-height: 1.5;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(to right, var(--blue-600), var(--purple-600));
-            color: white;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-description {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            max-width: 56rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        @media (min-width: 640px) {
-            .btn-group {
-                flex-direction: row;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--gray-800);
-            color: white;
-            padding: 1.5rem 0;
-        }
-
-        .footer-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-text {
-            font-size: 0.875rem;
-        }
+        /* --- Mobile Menu --- */
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transform: translateY(-100%); transition: 0.4s ease-in-out; }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu a { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="header-content">
-                <a href="/" class="logo">
-                    <img src="logo-sswebtech.png" alt="SSWebTech Logo">
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <header id="navbar">
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">
+                <img src="logo-sswebtech__1_-removebg-preview copy.png" alt="SS WebTech">
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="about.html" class="active">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="index.html#contact" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                    Let's Talk
                 </a>
-                <nav>
-                    <!-- Navigation links removed as per original -->
-                </nav>
-                <button class="btn btn-primary" onclick="history.back()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </button>
+            </nav>
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero anim-fade">
-        <div class="hero-container">
-            <h1>About Us</h1>
-            <p>We are committed to innovation and excellence, driving forward with a passion for creating impactful
-                solutions.</p>
-            <button class="btn btn-secondary btn-lg">Learn More</button>
+    <div class="mobile-menu" id="mobileMenu">
+        <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; background: none; border: none; font-size: 2rem;">&times;</button>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="index.html#services" onclick="toggleMenu()">Services</a>
+        <a href="about.html" onclick="toggleMenu()" style="color: var(--primary);">About</a>
+        <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <span style="font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase;">Who We Are</span>
+            <h1>Driving Digital <span class="gradient-text">Excellence</span></h1>
+            <p style="font-size: 1.25rem; color: #475569; max-width: 700px; margin: 0 auto 2rem;">
+                We are a team of innovators, developers, and strategists committed to transforming businesses through cutting-edge technology.
+            </p>
+            <a href="index.html#contact" class="btn btn-primary" style="padding: 1rem 2.5rem; background: white; color: var(--dark) !important; border: 1px solid #e2e8f0;">Get In Touch</a>
         </div>
     </section>
 
-    <!-- Leadership Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>Our Leadership</h2>
+                <p style="color: #64748b;">Visionaries leading the path to innovation.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="img/owner-image.jpg" alt="Yarru Sasidhar Royal" class="team-img">
+                    <div class="team-role">Founder & CEO</div>
+                    <h3>YARRU SASIDHAR ROYAL</h3>
+                    <p style="color: #64748b; margin: 1rem 0; font-size: 0.95rem;">
+                        A visionary entrepreneur with a passion for software engineering and business strategy. Leading SSWebTech from concept to a digital powerhouse.
+                    </p>
+                    <div style="margin-bottom: 1.5rem; color: #475569; font-size: 0.9rem;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Rayachoty
+                    </div>
+                    <div class="badge-container">
+                        <span class="badge">Strategic Leadership</span>
+                        <span class="badge">Innovation</span>
+                        <span class="badge">Tech Architecture</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://www.linkedin.com/in/yarru-sasidhar-royal/" target="_blank" style="color: #0077b5; font-size: 1.5rem;">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="img/director-image.png" alt="Yarru Rajasekhar" class="team-img">
+                    <div class="team-role">Manager</div>
+                    <h3>YARRU RAJASEKHAR</h3>
+                    <p style="color: #64748b; margin: 1rem 0; font-size: 0.95rem;">
+                        Provides strategic guidance and operational oversight. His mentorship brings financial insight and trusted support to the team.
+                    </p>
+                    <div style="margin-bottom: 1.5rem; color: #475569; font-size: 0.9rem;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Rayachoty
+                    </div>
+                    <div class="badge-container">
+                        <span class="badge">Operations</span>
+                        <span class="badge">Finance</span>
+                        <span class="badge">Global Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
-        <div class="section-container">
-            <div class="section-title anim-fade">
-                <h2>Our Leadership Team</h2>
-                <p>Experienced leaders with a proven track record of success and innovation</p>
-            </div>
-
-            <div class="grid grid-cols-1 grid-cols-2 gap-8 lg:gap-12">
-                <!-- Founder Card -->
-                <div class="card anim-scale">
-                    <div class="card-header">
-                        <div class="card-image">
-                            <img src="img/owner-image.jpg" alt="Founder">
-                        </div>
-                        <h3 class="card-title">YARRU SASIDHAR ROYAL</h3>
-                        <p class="card-subtitle">Founder & CEO</p>
-                        <div class="card-meta">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Location: Rayachoty</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-detail">
-                            <i class="fas fa-calendar"></i>
-                            <span>Founded the company in 2025</span>
-                        </div>
-                        <p class="card-text">
-                            YARRU SASIDHAR ROYAL is a visionary entrepreneur with a passion for transforming industries
-                            through
-                            innovative technology solutions. With his extensive background in software engineering
-                            and business strategy, he has successfully led multiple startups from concept to
-                            successful exits.
-                        </p>
-                        <div class="badge-container">
-                            <span class="badge">Strategic Leadership</span>
-                            <span class="badge">Product Innovation</span>
-                            <span class="badge">Team Building</span>
-                        </div>
-                        <div class="card-footer">
-                            <a href="https://www.linkedin.com/in/yarru-sasidhar-royal/" target=""
-                                class="btn btn-outline btn-sm">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Director Card -->
-                <div class="card anim-scale anim-delay-1">
-                    <div class="card-header">
-                        <div class="card-image">
-                            <img src="img/director-image.png" alt="Director">
-                        </div>
-                        <h3 class="card-title">YARRU RAJASEKHAR</h3>
-                        <p class="card-subtitle">Manager</p>
-                        <div class="card-meta">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Location: Rayachoty</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-detail">
-                            <i class="fas fa-calendar"></i>
-                            <span>Joined as Manager in 2025</span>
-                        </div>
-                        <p class="card-text">
-                            As Manager of SSWebTech, he provides strategic guidance and operational oversight.
-                            He supports key decisions like budgeting and planning with deep responsibility.
-                            His mentorship brings financial insight and trusted support to the team.
-                            With his experience, he strengthens our foundation and drives steady growth.
-                        </p>
-                        <div class="badge-container">
-                            <span class="badge">Technical Architecture</span>
-                            <span class="badge">Operations Management</span>
-                            <span class="badge">Global Strategy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="section values-section">
-        <div class="section-container">
-            <div class="section-title anim-fade">
-                <h2>Our Shared Vision</h2>
-                <p>
-                    Under their leadership, our company continues to push boundaries and create meaningful
-                    impact in the technology industry. Together, YARRU SASIDHAR ROYAL and YARRU RAJASEKHAR have built a
-                    culture of
-                    innovation, excellence, and continuous growth that drives everything we do.
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2>Our Shared Values</h2>
+                <p style="color: #64748b; max-width: 600px; margin: 0 auto;">
+                    We believe in a culture of innovation, excellence, and continuous growth that drives everything we do.
                 </p>
             </div>
 
-            <div class="values-grid grid-cols-1 grid-cols-3 gap-8 anim-fade">
-                <!-- Innovation Card -->
+            <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-bullseye icon-innovation"></i>
-                    </div>
-                    <h3 class="value-title">Innovation First</h3>
-                    <p class="value-description">Constantly pushing the boundaries of what's possible</p>
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation First</h3>
+                    <p style="color: #64748b; margin-top: 10px;">Constantly pushing the boundaries of what's possible in web and IoT.</p>
                 </div>
-
-                <!-- People Card -->
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users icon-people"></i>
-                    </div>
-                    <h3 class="value-title">People Focused</h3>
-                    <p class="value-description">Building strong teams and lasting relationships</p>
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>People Focused</h3>
+                    <p style="color: #64748b; margin-top: 10px;">Building strong teams and lasting relationships with our clients.</p>
                 </div>
-
-                <!-- Excellence Card -->
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-trophy icon-excellence"></i>
-                    </div>
-                    <h3 class="value-title">Excellence Driven</h3>
-                    <p class="value-description">Delivering exceptional results in everything we do</p>
+                    <div class="value-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Excellence Driven</h3>
+                    <p style="color: #64748b; margin-top: 10px;">Delivering exceptional, high-quality results in every project.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section anim-fade">
-        <div class="section-container">
-            <h2 class="cta-title">Ready to Work With Us?</h2>
-            <p class="cta-description">
+    <section class="section" style="background: linear-gradient(135deg, var(--darker), #1e293b); text-align: center; color: white;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Work With Us?</h2>
+            <p style="color: #94a3b8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Let's discuss how our experienced team can help bring your vision to life.
             </p>
-            <div class="btn-group">
-                <a href="/" class="btn btn-secondary btn-lg">Back to Home</a>
-            </div>
+            <a href="index.html#contact" class="btn btn-primary" style="background: white; color: var(--dark) !important; padding: 1rem 2.5rem;">
+                Get in Touch
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <p class="footer-text">&copy; 2025 SSWebTech. All rights reserved. Built with excellence and innovation.
-                </p>
+        <div class="container" style="text-align: center;">
+            <p style="color: #64748b;">&copy; 2025 SSWebTech. All rights reserved.</p>
+            <div style="margin-top: 15px;">
+                <img src="img/image.png" alt="MSME" style="height: 30px; opacity: 0.7;">
+                <p style="font-size: 0.8rem; font-weight: bold; color: #94a3b8; margin-top: 5px;">UDYAM-AP-24-0048466</p>
             </div>
-        </div>
-        <div class="fab-container">
-            <div class="fab-actions">
-                <a href="tel:+919391502293" class="fab-action fab-phone">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://wa.me/919391502293" target="_blank" class="fab-action fab-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="mailto:yarrusasi@gmail.com" class="fab-action fab-email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <button class="fab-main">
-                <i class="fas fa-envelope"></i>
-            </button>
         </div>
     </footer>
 
+    <div class="fab-container">
+        <div class="fab-options" id="fabOptions">
+            <a href="https://wa.me/919391502293" target="_blank" class="fab-btn" style="background: #25D366;" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+919391502293" class="fab-btn" style="background: #3b82f6;" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="mailto:yarrusasi@gmail.com" class="fab-btn" style="background: #ea4335;" title="Email Us">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <button class="fab-main" onclick="toggleFab()">
+            <i class="fas fa-comment-dots" id="fabIcon"></i>
+        </button>
+    </div>
 
     <script>
-        // Floating Action Button
-        const fabContainer = document.querySelector('.fab-container');
-        const fabMain = document.querySelector('.fab-main');
-        if (fabMain) {
-            fabMain.addEventListener('click', () => {
-                fabContainer.classList.toggle('active');
-                const icon = fabMain.querySelector('i');
-                if (fabContainer.classList.contains('active')) {
-                    icon.classList.remove('fa-envelope');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-envelope');
-                }
-            });
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        // Animate on Scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.anim-fade, .anim-scale');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        };
-
-        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        function toggleFab() {
+            const options = document.getElementById('fabOptions');
+            const mainBtn = document.querySelector('.fab-main');
+            const icon = document.getElementById('fabIcon');
+            options.classList.toggle('show');
+            mainBtn.classList.toggle('active');
+            if (mainBtn.classList.contains('active')) {
+                icon.classList.remove('fa-comment-dots');
+                icon.classList.add('fa-plus'); 
+            } else {
+                icon.classList.add('fa-comment-dots');
+                icon.classList.remove('fa-plus');
+            }
+        }
+        
+        document.addEventListener('click', function(event) {
+            const fabContainer = document.querySelector('.fab-container');
+            const options = document.getElementById('fabOptions');
+            const mainBtn = document.querySelector('.fab-main');
+            const icon = document.getElementById('fabIcon');
+            if (!fabContainer.contains(event.target) && options.classList.contains('show')) {
+                options.classList.remove('show');
+                mainBtn.classList.remove('active');
+                icon.classList.add('fa-comment-dots');
+                icon.classList.remove('fa-plus');
+            }
+        });
     </script>
 </body>
-
 </html>
