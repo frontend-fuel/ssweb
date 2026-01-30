@@ -8,15 +8,18 @@
 
     <link rel="icon" href="logo.png" type="image/png">
 
-    <meta name="description" content="Meet the leadership team behind SSWebTech. Innovation, excellence, and a passion for digital transformation.">
+    <meta name="description"
+        content="Meet the leadership team behind SSWebTech. Innovation, excellence, and a passion for digital transformation.">
     <link rel="canonical" href="https://sswebtech.xyz/about.html">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* --- Shared Styles --- */
         :root {
@@ -32,7 +35,11 @@
             --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -42,116 +49,464 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Space Grotesk', sans-serif;
             color: var(--darker);
             letter-spacing: -0.02em;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .section { padding: 6rem 0; position: relative; }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
 
         .btn {
-            position: relative; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600;
-            overflow: hidden; transition: all 0.3s ease; cursor: pointer; border: none;
-            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+            position: relative;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        .btn-primary { 
-            background: var(--darker); 
-            color: #ffffff !important; /* FORCED WHITE COLOR */
-            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.39); 
+        .btn-primary {
+            background: var(--darker);
+            color: #ffffff !important;
+            /* FORCED WHITE COLOR */
+            box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.23); }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.23);
+        }
 
         .gradient-text {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
         /* --- Navbar --- */
         header {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px;
-            z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border); border-radius: 16px; padding: 0.5rem 1.5rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 0.5rem 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
         }
-        header.scrolled { top: 10px; padding: 0.4rem 1.5rem; background: rgba(255, 255, 255, 0.95); }
-        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 55px; width: auto; }
-        .desktop-nav { display: none; gap: 2rem; align-items: center; }
-        .desktop-nav a { font-weight: 500; color: var(--dark); transition: 0.3s; text-decoration: none; }
-        .desktop-nav a:hover { color: var(--primary); }
-        .desktop-nav a.active { color: var(--primary); font-weight: 700; }
-        @media(min-width: 900px) { .desktop-nav { display: flex; } .mobile-toggle { display: none; } }
 
-        /* --- Hero --- */
-        .hero {
-            padding: 180px 0 100px; text-align: center; position: relative; overflow: hidden;
-            background: linear-gradient(-45deg, #eff6ff, #dbeafe, #e0e7ff); background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+        header.scrolled {
+            top: 10px;
+            padding: 0.4rem 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
         }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .blob { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.6; animation: float 10s infinite ease-in-out; }
-        .blob-1 { top: 10%; left: 10%; width: 300px; height: 300px; background: #bfdbfe; border-radius: 40% 60% 70% 30%; }
-        .blob-2 { bottom: 10%; right: 10%; width: 400px; height: 400px; background: #ddd6fe; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } }
-        
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            font-weight: 500;
+            color: var(--dark);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary);
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        @media(min-width: 900px) {
+            .desktop-nav {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+        /* --- Premium Hero --- */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-color: #030014;
+            background-image:
+                radial-gradient(circle at 50% 0%, #1a1a40 0%, transparent 70%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+            animation: pulse-glow 8s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 span.gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 4s linear infinite;
+        }
+
+        @keyframes textShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Floating Tech Icons Background */
+        .tech-float {
+            position: absolute;
+            opacity: 0.2;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 3rem;
+            animation: float-icon 10s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        .tf-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+            font-size: 4rem;
+            color: #61DAFB;
+        }
+
+        .tf-2 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: -2s;
+            font-size: 3rem;
+            color: #68A063;
+        }
+
+        .tf-3 {
+            top: 20%;
+            right: 15%;
+            animation-delay: -4s;
+            font-size: 2.5rem;
+            color: #F7DF1E;
+        }
+
+        .tf-4 {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: -6s;
+            font-size: 3.5rem;
+            color: #FF9900;
+        }
+
+        @keyframes float-icon {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
 
         /* --- Team Cards --- */
         .team-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
+
         .team-card {
-            background: white; border-radius: 24px; padding: 2.5rem; text-align: center;
-            border: 1px solid rgba(0,0,0,0.05); transition: 0.4s; position: relative; overflow: hidden;
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
-        .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); border-color: rgba(59, 130, 246, 0.3); }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
         .team-img {
-            width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem;
-            border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
         .team-role {
-            color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
         }
-        .badge-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
         .badge {
-            background: #f1f5f9; color: var(--dark); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+            background: #f1f5f9;
+            color: var(--dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
         /* --- Values Section --- */
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .value-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid #e2e8f0; }
-        .value-icon { width: 60px; height: 60px; background: #eff6ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem; }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
 
         /* --- Footer & FAB --- */
-        footer { background: white; padding: 4rem 0 2rem; border-top: 1px solid #e2e8f0; }
-        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .fab-options { display: flex; flex-direction: column-reverse; gap: 15px; margin-bottom: 5px; opacity: 0; transform: translateY(20px) scale(0.8); pointer-events: none; transition: 0.3s; }
-        .fab-options.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
-        .fab-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 1.2rem; transition: transform 0.2s; }
-        .fab-btn:hover { transform: scale(1.1); }
-        .fab-main { width: 65px; height: 65px; border-radius: 50%; background: var(--darker); color: white; border: none; font-size: 1.8rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .fab-main.active { transform: rotate(45deg); background: #ef4444; }
+        footer {
+            background: white;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .fab-options {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 15px;
+            margin-bottom: 5px;
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .fab-options.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .fab-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .fab-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .fab-main {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--darker);
+            color: white;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fab-main.active {
+            transform: rotate(45deg);
+            background: #ef4444;
+        }
 
         /* --- Mobile Menu --- */
-        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transform: translateY(-100%); transition: 0.4s ease-in-out; }
-        .mobile-menu.active { transform: translateY(0); }
-        .mobile-menu a { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            transition: 0.4s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
     <header id="navbar">
         <div class="nav-wrapper">
             <a href="index.html" class="logo">
-                <img src="logo-sswebtech__1_-removebg-preview copy.png" alt="SS WebTech">
+                <img src="logo100.png" alt="SS WebTech">
             </a>
 
             <nav class="desktop-nav">
@@ -172,7 +527,8 @@
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
-        <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; background: none; border: none; font-size: 2rem;">&times;</button>
+        <button onclick="toggleMenu()"
+            style="position: absolute; top: 30px; right: 30px; background: none; border: none; font-size: 2rem;">&times;</button>
         <a href="index.html" onclick="toggleMenu()">Home</a>
         <a href="index.html#services" onclick="toggleMenu()">Services</a>
         <a href="about.html" onclick="toggleMenu()" style="color: var(--primary);">About</a>
@@ -180,13 +536,24 @@
     </div>
 
     <section class="hero">
-        <div class="container">
-            <span style="font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase;">Who We Are</span>
+        <i class="fab fa-react tech-float tf-1"></i>
+        <i class="fab fa-node tech-float tf-2"></i>
+        <i class="fab fa-js tech-float tf-3"></i>
+        <i class="fas fa-cloud tech-float tf-4"></i>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div
+                style="margin-bottom: 20px; display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 30px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: #cbd5e1; backdrop-filter: blur(10px);">
+                ✨ WHO WE ARE
+            </div>
             <h1>Driving Digital <span class="gradient-text">Excellence</span></h1>
-            <p style="font-size: 1.25rem; color: #475569; max-width: 700px; margin: 0 auto 2rem;">
-                We are a team of innovators, developers, and strategists committed to transforming businesses through cutting-edge technology.
+            <p style="font-size: 1.25rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 2rem;">
+                We are a team of innovators, developers, and strategists committed to transforming businesses through
+                cutting-edge technology.
             </p>
-            <a href="index.html#contact" class="btn btn-primary" style="padding: 1rem 2.5rem; background: white; color: var(--dark) !important; border: 1px solid #e2e8f0;">Get In Touch</a>
+            <a href="index.html#contact" class="btn btn-primary"
+                style="padding: 1rem 2.5rem; background: white; color: var(--dark) !important; border: 1px solid #e2e8f0;">Get
+                In Touch</a>
         </div>
     </section>
 
@@ -203,7 +570,8 @@
                     <div class="team-role">Founder & CEO</div>
                     <h3>YARRU SASIDHAR ROYAL</h3>
                     <p style="color: #64748b; margin: 1rem 0; font-size: 0.95rem;">
-                        A visionary entrepreneur with a passion for software engineering and business strategy. Leading SSWebTech from concept to a digital powerhouse.
+                        A visionary entrepreneur with a passion for software engineering and business strategy. Leading
+                        SSWebTech from concept to a digital powerhouse.
                     </p>
                     <div style="margin-bottom: 1.5rem; color: #475569; font-size: 0.9rem;">
                         <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Rayachoty
@@ -214,7 +582,8 @@
                         <span class="badge">Tech Architecture</span>
                     </div>
                     <div style="margin-top: 1.5rem;">
-                        <a href="https://www.linkedin.com/in/yarru-sasidhar-royal/" target="_blank" style="color: #0077b5; font-size: 1.5rem;">
+                        <a href="https://www.linkedin.com/in/yarru-sasidhar-royal/" target="_blank"
+                            style="color: #0077b5; font-size: 1.5rem;">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -225,7 +594,8 @@
                     <div class="team-role">Manager</div>
                     <h3>YARRU RAJASEKHAR</h3>
                     <p style="color: #64748b; margin: 1rem 0; font-size: 0.95rem;">
-                        Provides strategic guidance and operational oversight. His mentorship brings financial insight and trusted support to the team.
+                        Provides strategic guidance and operational oversight. His mentorship brings financial insight
+                        and trusted support to the team.
                     </p>
                     <div style="margin-bottom: 1.5rem; color: #475569; font-size: 0.9rem;">
                         <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Rayachoty
@@ -245,7 +615,8 @@
             <div style="text-align: center; margin-bottom: 4rem;">
                 <h2>Our Shared Values</h2>
                 <p style="color: #64748b; max-width: 600px; margin: 0 auto;">
-                    We believe in a culture of innovation, excellence, and continuous growth that drives everything we do.
+                    We believe in a culture of innovation, excellence, and continuous growth that drives everything we
+                    do.
                 </p>
             </div>
 
@@ -253,29 +624,34 @@
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Innovation First</h3>
-                    <p style="color: #64748b; margin-top: 10px;">Constantly pushing the boundaries of what's possible in web and IoT.</p>
+                    <p style="color: #64748b; margin-top: 10px;">Constantly pushing the boundaries of what's possible in
+                        web and IoT.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-users"></i></div>
                     <h3>People Focused</h3>
-                    <p style="color: #64748b; margin-top: 10px;">Building strong teams and lasting relationships with our clients.</p>
+                    <p style="color: #64748b; margin-top: 10px;">Building strong teams and lasting relationships with
+                        our clients.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-trophy"></i></div>
                     <h3>Excellence Driven</h3>
-                    <p style="color: #64748b; margin-top: 10px;">Delivering exceptional, high-quality results in every project.</p>
+                    <p style="color: #64748b; margin-top: 10px;">Delivering exceptional, high-quality results in every
+                        project.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: linear-gradient(135deg, var(--darker), #1e293b); text-align: center; color: white;">
+    <section class="section"
+        style="background: linear-gradient(135deg, var(--darker), #1e293b); text-align: center; color: white;">
         <div class="container">
             <h2 style="color: white; margin-bottom: 1rem;">Ready to Work With Us?</h2>
             <p style="color: #94a3b8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Let's discuss how our experienced team can help bring your vision to life.
             </p>
-            <a href="index.html#contact" class="btn btn-primary" style="background: white; color: var(--dark) !important; padding: 1rem 2.5rem;">
+            <a href="index.html#contact" class="btn btn-primary"
+                style="background: white; color: var(--dark) !important; padding: 1rem 2.5rem;">
                 Get in Touch
             </a>
         </div>
@@ -286,14 +662,16 @@
             <p style="color: #64748b;">&copy; 2025 SSWebTech. All rights reserved.</p>
             <div style="margin-top: 15px;">
                 <img src="img/image.png" alt="MSME" style="height: 30px; opacity: 0.7;">
-                <p style="font-size: 0.8rem; font-weight: bold; color: #94a3b8; margin-top: 5px;">UDYAM-AP-24-0048466</p>
+                <p style="font-size: 0.8rem; font-weight: bold; color: #94a3b8; margin-top: 5px;">UDYAM-AP-24-0048466
+                </p>
             </div>
         </div>
     </footer>
 
     <div class="fab-container">
         <div class="fab-options" id="fabOptions">
-            <a href="https://wa.me/919391502293" target="_blank" class="fab-btn" style="background: #25D366;" title="WhatsApp">
+            <a href="https://wa.me/919391502293" target="_blank" class="fab-btn" style="background: #25D366;"
+                title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="tel:+919391502293" class="fab-btn" style="background: #3b82f6;" title="Call Us">
@@ -327,14 +705,14 @@
             mainBtn.classList.toggle('active');
             if (mainBtn.classList.contains('active')) {
                 icon.classList.remove('fa-comment-dots');
-                icon.classList.add('fa-plus'); 
+                icon.classList.add('fa-plus');
             } else {
                 icon.classList.add('fa-comment-dots');
                 icon.classList.remove('fa-plus');
             }
         }
-        
-        document.addEventListener('click', function(event) {
+
+        document.addEventListener('click', function (event) {
             const fabContainer = document.querySelector('.fab-container');
             const options = document.getElementById('fabOptions');
             const mainBtn = document.querySelector('.fab-main');
@@ -348,4 +726,5 @@
         });
     </script>
 </body>
+
 </html>
