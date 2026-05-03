@@ -1130,6 +1130,7 @@
 
             <nav class="desktop-nav">
                 <a href="about.html">About</a>
+                <a href="#internships">Internships</a>
                 <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
                 <a href="#industries">Industries</a>
@@ -1151,6 +1152,7 @@
         <button onclick="toggleMenu()"
             style="position: absolute; top: 30px; right: 30px; background: none; border: none; font-size: 2rem;">×</button>
         <a href="about.html" onclick="toggleMenu()">About</a>
+        <a href="#internships" onclick="toggleMenu()">Internships</a>
         <a href="#services" onclick="toggleMenu()">Services</a>
         <a href="#projects" onclick="toggleMenu()">Projects</a>
         <a href="#industries" onclick="toggleMenu()">Industries</a>
@@ -1269,6 +1271,144 @@
         </div>
     </section>
 
+    <section id="internships" class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); overflow: hidden;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="display: inline-block; padding: 6px 12px; background: rgba(59, 130, 246, 0.1); color: var(--primary); border-radius: 8px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; border: 1px solid rgba(59, 130, 246, 0.2);">
+                        🚀 LAUNCH YOUR CAREER
+                    </div>
+                    <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">The Ultimate <span class="gradient-text">Tech Internship</span></h2>
+                    <p style="color: #64748b; font-size: 1.2rem; max-width: 750px; margin: 0 auto;">
+                        Don't just learn. Create. Join our high-impact internship tracks designed to turn students into world-class engineers.
+                    </p>
+                </div>
+
+                <!-- Tracks Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 4rem;">
+                    <!-- Full Stack Web -->
+                    <div class="ind-card" style="padding: 3rem 2rem; background: white; border: 1px solid rgba(59, 130, 246, 0.1);">
+                        <div class="ind-icon-wrapper style-edu"><i class="fas fa-code"></i></div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Full Stack Web</h3>
+                        <p style="color: #64748b; margin-bottom: 2rem;">Master modern web development with React, Node.js, and Cloud architectures.</p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">MERN Stack</span>
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">Next.js</span>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Apps -->
+                    <div class="ind-card" style="padding: 3rem 2rem; background: white; border: 1px solid rgba(139, 92, 246, 0.1);">
+                        <div class="ind-icon-wrapper style-health"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Mobile Development</h3>
+                        <p style="color: #64748b; margin-bottom: 2rem;">Build high-performance native apps for iOS and Android using React Native.</p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">React Native</span>
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">Expo</span>
+                        </div>
+                    </div>
+
+                    <!-- IoT Solutions -->
+                    <div class="ind-card" style="padding: 3rem 2rem; background: white; border: 1px solid rgba(6, 182, 212, 0.1);">
+                        <div class="ind-icon-wrapper style-hospitality"><i class="fas fa-microchip"></i></div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">IoT & Embedded</h3>
+                        <p style="color: #64748b; margin-bottom: 2rem;">Program smart hardware and sensors using ESP32 and Arduino frameworks.</p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">Hardware</span>
+                            <span style="background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #e2e8f0;">C++</span>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    @media (max-width: 991px) {
+                        .lms-showcase {
+                            grid-template-columns: 1fr !important;
+                            text-align: center;
+                            padding: 3rem 2rem !important;
+                        }
+                        .lms-features {
+                            justify-content: center;
+                        }
+                        .lms-mockup {
+                            display: none;
+                        }
+                    }
+                </style>
+
+                <!-- Featured LMS Portal Showcase -->
+                <div class="lms-showcase" style="background: var(--darker); border-radius: 32px; padding: 4rem; color: white; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-shadow: 0 30px 60px rgba(0,0,0,0.2); margin-bottom: 3rem;">
+                    <!-- Decorative Glow -->
+                    <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); filter: blur(50px);"></div>
+                    
+                    <div style="position: relative; z-index: 1;">
+                        <span style="background: rgba(255,255,255,0.1); color: var(--accent); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.1);">LMS PLATFORM</span>
+                        <h2 style="color: white; font-size: 2.5rem; margin-top: 1.5rem; line-height: 1.2;">Everything you need in <span class="gradient-text">One Portal</span></h2>
+                        <p style="color: #94a3b8; margin: 1.5rem 0 2.5rem; font-size: 1.1rem; line-height: 1.6;">
+                            Our exclusive Blockchain-verified internship portal allows you to track progress, access course materials, and receive globally recognized certificates.
+                        </p>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="lms-features" style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 24px; height: 24px; background: rgba(59, 130, 246, 0.2); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;"><i class="fas fa-check"></i></div>
+                                <span style="color: #cbd5e1;">Blockchain Verified Certificates</span>
+                            </div>
+                            <div class="lms-features" style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 24px; height: 24px; background: rgba(59, 130, 246, 0.2); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;"><i class="fas fa-check"></i></div>
+                                <span style="color: #cbd5e1;">Real-time Progress Tracking</span>
+                            </div>
+                            <div class="lms-features" style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 24px; height: 24px; background: rgba(59, 130, 246, 0.2); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;"><i class="fas fa-check"></i></div>
+                                <span style="color: #cbd5e1;">Curated Learning Resources</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 3rem;">
+                            <a href="https://sswebtechintern.vercel.app/" target="_blank" class="btn btn-primary" style="background: white; color: var(--darker) !important; padding: 1rem 2.5rem;">Launch Portal <i class="fas fa-external-link-alt" style="margin-left: 10px; font-size: 0.8rem;"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="lms-mockup" style="position: relative; z-index: 1;">
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; transform: perspective(1000px) rotateY(-10deg) rotateX(5deg); box-shadow: 20px 20px 50px rgba(0,0,0,0.5);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                <div style="width: 10px; height: 10px; background: #ff5f57; border-radius: 50%;"></div>
+                                <div style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></div>
+                                <div style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.05); height: 120px; border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--accent); opacity: 0.6;"></i>
+                            </div>
+                            <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; width: 80%; margin-bottom: 10px;"></div>
+                            <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Row -->
+                <div style="background: white; border-radius: 24px; padding: 2rem; border: 1px solid #f1f5f9; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                        <div>
+                            <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-award"></i></div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Certification</h4>
+                            <p style="color: #64748b; font-size: 0.85rem;">Professional industry-standard certificates.</p>
+                        </div>
+                        <div>
+                            <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-briefcase"></i></div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Job Support</h4>
+                            <p style="color: #64748b; font-size: 0.85rem;">Placement assistance & resume building.</p>
+                        </div>
+                        <div>
+                            <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-user-clock"></i></div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Flexible Timing</h4>
+                            <p style="color: #64748b; font-size: 0.85rem;">Work at your own pace alongside studies.</p>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <a href="https://wa.me/919391502293?text=Hi SSWebTech, I'm interested in applying for an internship." target="_blank" class="btn btn-primary" style="padding: 0.8rem 2rem; width: 100%; text-decoration: none; display: flex; align-items: center; justify-content: center;">Apply on WhatsApp <i class="fab fa-whatsapp" style="margin-left: 10px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="section" style="background: linear-gradient(to bottom, #f8fafc, white);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
@@ -1377,6 +1517,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section id="industries" class="section">
         <div class="container">
@@ -1505,9 +1647,20 @@
                         </div>
                     </a>
                 </div>
-                <div style="text-align: right;">
-                    <p style="font-size: 0.9rem; color: #64748b;">Founder: Yarru Sasidhar Royal</p>
-                    <p style="font-size: 0.9rem; color: #64748b;">Manager: Yarru Rajasekhar</p>
+                <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+                    <div style="text-align: left;">
+                        <h4 style="margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Quick Links</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li style="margin-bottom: 5px;"><a href="about.html" style="text-decoration: none; color: #64748b;">About Us</a></li>
+                            <li style="margin-bottom: 5px;"><a href="#internships" style="text-decoration: none; color: #64748b;">Internships</a></li>
+                            <li style="margin-bottom: 5px;"><a href="#services" style="text-decoration: none; color: #64748b;">Services</a></li>
+                            <li><a href="#contact" style="text-decoration: none; color: #64748b;">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="font-size: 0.9rem; color: #64748b;">Founder: Yarru Sasidhar Royal</p>
+                        <p style="font-size: 0.9rem; color: #64748b;">Manager: Yarru Rajasekhar</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1524,6 +1677,8 @@
         </div>
         <button class="fab-main" onclick="toggleFab()"><i class="fas fa-comment-dots" id="fabIcon"></i></button>
     </div>
+
+
 
     <div class="modal-overlay" id="quoteModal">
         <div class="modal-card">
@@ -1579,6 +1734,8 @@
         document.getElementById('quoteModal').addEventListener('click', (e) => {
             if (e.target === document.getElementById('quoteModal')) closeModal();
         });
+
+
 
         // FAB Logic
         function toggleFab() {
